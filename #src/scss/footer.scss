@@ -3,6 +3,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
+  z-index: 30;
   &.active {
     height: 97%;
     .footer__form {
