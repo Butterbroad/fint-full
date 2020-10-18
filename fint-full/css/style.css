@@ -973,7 +973,7 @@ input:focus::placeholder {
 
 .lol1 {
   width: 100%;
-  height: 310vh;
+  height: 210vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1016,15 +1016,18 @@ input:focus::placeholder {
   top: 0;
   max-height: 700px;
   overflow: hidden;
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 .lol2 {
-  height: 200vh;
+  height: 100vh;
   position: -webkit-sticky;
   position: sticky;
   overflow: hidden;
   top: 0;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .footer {
