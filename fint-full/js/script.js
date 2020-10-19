@@ -1,22 +1,21 @@
 'use strict'
-document.addEventListener('DOMContentLoaded', () => {
-  //get link with parameters
-  const paramLinks = document.querySelectorAll('.get-link');
-  if (paramLinks.length > 0) {
-    paramLinks.forEach(link => {
-      link.setAttribute('href', link.getAttribute('href') + window.location.search);
-    });
-  }
-
-  //footer button
-  const footerBtn = document.querySelector('.footer__btn-trigger');
-  footerBtn.addEventListener('click', () => {
-    footerBtn.classList.toggle('active');
-    footerBtn.classList.contains('active') ? footerBtn.innerText = "Скрыть" : footerBtn.innerText = "Регистрация";
-    const footer = document.querySelector('.footer');
-    footer.classList.toggle('active');
-    document.body.classList.toggle('lock');
+//get link with parameters
+const paramLinks = document.querySelectorAll('.get-link');
+if (paramLinks.length > 0) {
+  paramLinks.forEach(link => {
+    link.setAttribute('href', link.getAttribute('href') + window.location.search);
   });
+}
+
+//footer button
+const footerBtn = document.querySelector('.footer__btn-trigger');
+footerBtn.addEventListener('click', () => {
+  footerBtn.classList.toggle('active');
+  footerBtn.classList.contains('active') ? footerBtn.innerText = "Скрыть" : footerBtn.innerText = "Регистрация";
+  const footer = document.querySelector('.footer');
+  footer.classList.toggle('active');
+  document.body.classList.toggle('lock');
+});
 
 
 
@@ -24,16 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  //Canvas
+//Canvas
 const html = document.documentElement;
 const canvas = document.getElementById("canvas1");
 const context = canvas.getContext("2d");
-
 const sceneOne = document.querySelector('.scene-one')
 const hero = document.querySelector('.hero')
-
-
+const sticky = document.querySelector('.sticky');
 const frameCount = 23;
+
+
 const currentFrame = index => (
   `../img/scene1/animation1/${index.toString().padStart(4, '0')}.jpg`
 )
@@ -59,6 +58,20 @@ const updateImage = index => {
 }
 
 window.addEventListener('scroll', () => {
+  function showTriggerSection(section) {
+    let top = section.getBoundingClientRect().top;
+    if (top === 0 || top < 0) {
+      section.style.opacity = 1;
+      section.style.pointerEvents = "all";
+    } else {
+      section.style.opacity = 0;
+      section.style.pointerEvents = "none";
+    }
+    console.log(top)
+  }
+  showTriggerSection(sticky)
+
+
   const scrollTop = html.scrollTop - hero.scrollHeight;
   const maxScrollTop = sceneOne.scrollHeight - window.innerHeight;
   const scrollFraction = scrollTop / maxScrollTop;
@@ -67,10 +80,10 @@ window.addEventListener('scroll', () => {
     Math.ceil(scrollFraction * frameCount)
   );
 
-  requestAnimationFrame(() => frameCount > 0 && updateImage(frameIndex + 1))
+  requestAnimationFrame(() => frameIndex > 0 && updateImage(frameIndex + 1))
 });
 
-preloadImages()
+preloadImages();
 
 
 
@@ -110,32 +123,13 @@ const scene1 = new ScrollMagic.Scene({
   .addIndicators()
   .addTo(controller);
 
-// var tlSecondScroll = new TimelineMax();
-
-// tlSecondScroll
-//   .to('.iphone1', 3, { x: '-50%' })
-//   .to('.iphone2', 3, { x: '50%' }, '-=3')
-//   .from('.iphone1-text', 0.3, { autoAlpha: 0 }, '-=3')
-//   .from('.iphone2-text', 0.3, { autoAlpha: 0 }, '-=3')
-//   .to('.iphone1-text', 3, { x: '-30%' }, '-=3')
-//   .to('.iphone2-text', 3, { x: '30%' }, '-=3')
-
-
-// var scene1 = new ScrollMagic.Scene({
-//   triggerElement: '.trigger2',
-//   triggerHook: 0,
-//   duration: '100%'
-// })
-//   .setTween(tlSecondScroll)
-//   .setPin('.trigger2')
-//   .addIndicators()
-//   .addTo(controller);;
+;
 
 
 
 
 
-  function init() {
+function init() {
   new SmoothScroll(document, 60, 12) //div px smooth
 }
 
@@ -204,7 +198,7 @@ function SmoothScroll(target, speed, smooth) {
   }()
 }
 init();
-  function testWebP(callback) {
+function testWebP(callback) {
 
     var webP = new Image();
     webP.onload = webP.onerror = function () {
@@ -221,4 +215,3 @@ testWebP(function (support) {
         document.querySelector('body').classList.add('no-webp');
     }
 });;
-});

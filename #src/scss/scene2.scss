@@ -1,0 +1,9 @@
+.scene-one-trigger {
+  height: 99.99vh;
+  opacity: 0;
+  background-color: #000;
+  z-index: 2;
+  position: sticky;
+  top: 0;
+  pointer-events: none;
+}

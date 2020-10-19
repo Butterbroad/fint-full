@@ -1311,9 +1311,12 @@ input:focus::placeholder {
 
 .scene-one-trigger {
   height: 99.99vh;
-  background-color: transparent;
+  opacity: 0;
+  background-color: #000;
   z-index: 2;
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   pointer-events: none;
 }
 
