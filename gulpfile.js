@@ -105,17 +105,20 @@ function css() {
 		.pipe(browsersync.stream())
 }
 
-// function libsJs() {
-// 	return gulp.src([
-// 		'node_modules/slick-carousel/slick/slick.js',
-// 	])
-// 		.pipe(concat("libs.min.js"))
-// 		.pipe(
-// 			uglify()
-// 		)
-// 		.pipe(dest(path.build.js))
-// 		.pipe(browsersync.stream())
-// }
+function libsJs() {
+	return gulp.src([
+		'node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js',
+		'node_modules/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js',
+		'node_modules/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js',
+		'node_modules/gsap/dist/gsap.min.js',
+	])
+		.pipe(concat("libs.min.js"))
+		.pipe(
+			uglify()
+		)
+		.pipe(dest(path.build.js))
+		.pipe(browsersync.stream())
+}
 
 function js() {
 	return src(path.src.js)
@@ -220,7 +223,7 @@ function clean(params) {
 	return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, libsCss, css, html, images, fonts), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(js, libsJs, libsCss, css, html, images, fonts), fontsStyle);
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
@@ -228,7 +231,7 @@ exports.fonts = fonts;
 exports.images = images;
 exports.js = js;
 exports.libsCss = libsCss;
-// exports.libsJs = libsJs;
+exports.libsJs = libsJs;
 exports.css = css;
 exports.html = html;
 exports.build = build;

@@ -13,6 +13,8 @@ body {
 body {
     font-size: 14px;
     font-weight: 400;
+    font-family: monospace;
+    font-family: "Gilroy-Regular", sans-serif;
     &.lock {
         overflow: hidden;
     }
@@ -46,6 +48,8 @@ li {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    position: relative;
 }
 
 button {
