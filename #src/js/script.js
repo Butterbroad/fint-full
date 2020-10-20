@@ -22,10 +22,10 @@ footerBtn.addEventListener('click', () => {
 
 
 
-
+@@include('canvases.js');
 @@include('scene1.js');
 
-
+@@include('scene2.js');
 
 
 
