@@ -1,0 +1,32 @@
+.scene-three {
+  width: 100%;
+  display: flex;
+  height: 200vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 5;
+  position: sticky;
+  top: 0;
+  margin-top: -90%;
+  &__wrapper {
+    position: relative;
+    flex-grow: 1;
+  }
+  #canvas4 {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+  }
+}
+
+.scene-three-trigger {
+  height: 100vh;
+  opacity: 0;
+  z-index: 2;
+  background-color: #fff;
+  pointer-events: none;
+  position: relative;
+  overflow: hidden;
+}

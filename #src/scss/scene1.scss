@@ -51,6 +51,7 @@
   // .scene-one__title
 
   &__title {
+  transform: translateY(50%) scale(1);
 
   }
 
@@ -164,7 +165,6 @@
   z-index: 5;
   position: relative;
   margin-bottom: 70px;
-  transform: translateY(50%) scale(1);
   transform-origin: left center;
 
   &::before {
@@ -215,13 +215,44 @@
     font-family: "Roboto-Regular", sans-serif;
     color: #1D1D1F;
     margin-bottom: 20px;
+    position: relative;
+    max-width: 500px;
+    &.active {
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: -5px;
+        width: 27px;
+        height: 27px;
+        background-image: url(../img/check.svg);
+      }
+    }
     &:last-child {
       margin-bottom: 0;
     }
     a {
       color: #0A9F30;
     }
+    span {
+      font-family: "Roboto-Bold", sans-serif;
+    }
   }
+   // .scene-list__link
+
+   &__link {
+    color: #0A9F30;
+    text-decoration: underline;
+    &_md {
+      display: none;
+    }
+    @media (max-width: 1024px) {
+      display: none;
+      &_md {
+        display: inline-block;
+      }
+    }
+   }
 }
 
 .navigation {

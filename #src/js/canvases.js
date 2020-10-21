@@ -12,6 +12,10 @@ let margin2 = sceneOne.scrollHeight + hero.scrollHeight;
 //canvas3
 const canvas3 = document.getElementById("canvas3");
 
+//canvas4
+const sceneThree = document.querySelector('.scene-three');
+let margin3 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight;
+const canvas4 = document.getElementById("canvas4");
 
 //sticky section
 const sticky = document.querySelector('.sticky');
@@ -65,6 +69,8 @@ getCanvas(canvas1, 600, 1080, sceneOne, margin1, 23, '../img/scene1/animation1',
 getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2', 'jpg');
 
 getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
+
+getCanvas(canvas4, 1920, 1080, sceneThree, margin3, 18, '../img/scene3/animation4', 'jpg');
 
 
 

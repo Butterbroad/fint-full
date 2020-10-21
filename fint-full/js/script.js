@@ -36,6 +36,10 @@ let margin2 = sceneOne.scrollHeight + hero.scrollHeight;
 //canvas3
 const canvas3 = document.getElementById("canvas3");
 
+//canvas4
+const sceneThree = document.querySelector('.scene-three');
+let margin3 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight;
+const canvas4 = document.getElementById("canvas4");
 
 //sticky section
 const sticky = document.querySelector('.sticky');
@@ -90,6 +94,8 @@ getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2',
 
 getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
 
+getCanvas(canvas4, 1920, 1080, sceneThree, margin3, 18, '../img/scene3/animation4', 'jpg');
+
 
 
 
@@ -106,13 +112,6 @@ getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', '
 //   }
 // }
 // showTriggerSection(sticky);
-
-
-
-
-
-
-
 //animations
 const controller = new ScrollMagic.Controller();
 const firstScene = new TimelineMax();
@@ -122,17 +121,18 @@ firstScene
   .to('.player-info', 5, { opacity: 0 }, "+=1")
   .from('.scene-one__box', 10, { left: "-100%" })
   .from('.scene-one__content', 30, { y: '400%' }, '-=30')
-  .to('.scene-title', 6, { scale: .8, y: '0' })
+  .to('.scene-one__title', 6, { scale: .8, y: '0' })
   .to('.scene-title__num_1', 6, { opacity: 0 }, '-=6')
-  .from('.scene-list', 6, { opacity: 0, y: '30%' })
+  .from('.scene-one__list', 6, { opacity: 0, y: '30%' })
+  .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
   .set('.scene-one__box', { zIndex: 10 })
   .to('.scene-one__box', 12, { left: 0, width: '700px', height: '147', y: '100%' })
-  .to('.scene-title', 6, { y: '-13%' }, '-=12')
+  .to('.scene-one__title', 6, { y: '-13%' }, '-=12')
   .to('.scene-one__box-title', 6, { opacity: 1, x: 0 })
-  .to('.scene-one__box', 6, { height: '650px', top: '-135%' })
+  .to('.scene-one__box', 6, { height: '650px', top: '-128%' })
   .to('.scene-one__box-title', 6, { y: "30%" })
   .to('.scene-one__box-num', 6, { opacity: 1, y: '30%' })
-  .to('.scene-two', .1, { marginTop: '-65%' })
+  .set('.scene-two', { marginTop: '-50%' }, '+=.5')
 
 
 //scene1
@@ -149,7 +149,28 @@ const scene1 = new ScrollMagic.Scene({
 
 ;
 
-;
+//animations
+const secondScene = new TimelineMax();
+
+secondScene
+  .to('.scene-two__title', 2, { x: 0 })
+  .to('.scene-title__num_2', 2, { opacity: 0 }, '-=2')
+  .to('.scene-two__list', 1, { y: 0, opacity: 1 })
+  .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
+  .to('.canvas3', 10, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" })
+
+
+//scene1
+const scene2 = new ScrollMagic.Scene({
+  triggerElement: '.scene-two-trigger',
+  triggerHook: 50,
+  duration: '100%'
+})
+
+  .setTween(secondScene)
+  .setPin('.scene-two-trigger')
+  .addIndicators()
+  .addTo(controller);;
 
 
 
