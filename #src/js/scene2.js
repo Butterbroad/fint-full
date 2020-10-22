@@ -7,6 +7,7 @@ secondScene
   .to('.scene-two__list', 1, { y: 0, opacity: 1 })
   .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
   .to('.canvas3', 10, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" })
+  .set('.scene-three-preview', { zIndex: '5' })
 
 
 //scene1

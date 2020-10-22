@@ -13,9 +13,15 @@ let margin2 = sceneOne.scrollHeight + hero.scrollHeight;
 const canvas3 = document.getElementById("canvas3");
 
 //canvas4
-const sceneThree = document.querySelector('.scene-three');
+const sceneThreePreview = document.querySelector('.scene-three-preview');
 let margin3 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight;
 const canvas4 = document.getElementById("canvas4");
+
+//canvas4
+const sceneThree = document.querySelector('.scene-three');
+const sceneThreePostview = document.querySelector('.scene-three-postview');
+let margin4 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight + sceneThree.scrollHeight + 2600;
+const canvas5 = document.getElementById("canvas5");
 
 //sticky section
 const sticky = document.querySelector('.sticky');
@@ -70,7 +76,9 @@ getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2',
 
 getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
 
-getCanvas(canvas4, 1920, 1080, sceneThree, margin3, 18, '../img/scene3/animation4', 'jpg');
+getCanvas(canvas4, 1920, 1080, sceneThreePreview, margin3, 18, '../img/scene3/animation4', 'jpg');
+
+getCanvas(canvas5, 1920, 1080, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
 
 
 

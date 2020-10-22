@@ -246,12 +246,12 @@
     &_md {
       display: none;
     }
-    @media (max-width: 1024px) {
-      display: none;
-      &_md {
-        display: inline-block;
-      }
-    }
+    // @media (max-width: 1024px) {
+    //   display: none;
+    //   &_md {
+    //     display: inline-block;
+    //   }
+    // }
    }
 }
 

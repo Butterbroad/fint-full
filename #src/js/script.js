@@ -26,7 +26,7 @@ footerBtn.addEventListener('click', () => {
 @@include('scene1.js');
 
 @@include('scene2.js');
-
+@@include('scene3.js');
 
 
 @@include('smoothPageScroll.js');

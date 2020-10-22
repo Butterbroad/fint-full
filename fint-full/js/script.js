@@ -37,9 +37,15 @@ let margin2 = sceneOne.scrollHeight + hero.scrollHeight;
 const canvas3 = document.getElementById("canvas3");
 
 //canvas4
-const sceneThree = document.querySelector('.scene-three');
+const sceneThreePreview = document.querySelector('.scene-three-preview');
 let margin3 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight;
 const canvas4 = document.getElementById("canvas4");
+
+//canvas4
+const sceneThree = document.querySelector('.scene-three');
+const sceneThreePostview = document.querySelector('.scene-three-postview');
+let margin4 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight + sceneThree.scrollHeight + 2600;
+const canvas5 = document.getElementById("canvas5");
 
 //sticky section
 const sticky = document.querySelector('.sticky');
@@ -94,7 +100,9 @@ getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2',
 
 getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
 
-getCanvas(canvas4, 1920, 1080, sceneThree, margin3, 18, '../img/scene3/animation4', 'jpg');
+getCanvas(canvas4, 1920, 1080, sceneThreePreview, margin3, 18, '../img/scene3/animation4', 'jpg');
+
+getCanvas(canvas5, 1920, 1080, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
 
 
 
@@ -132,7 +140,7 @@ firstScene
   .to('.scene-one__box', 6, { height: '650px', top: '-128%' })
   .to('.scene-one__box-title', 6, { y: "30%" })
   .to('.scene-one__box-num', 6, { opacity: 1, y: '30%' })
-  .set('.scene-two', { marginTop: '-50%' }, '+=.5')
+  .set('.scene-two', { marginTop: '-100vh' }, '+=.5')
 
 
 //scene1
@@ -158,6 +166,7 @@ secondScene
   .to('.scene-two__list', 1, { y: 0, opacity: 1 })
   .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
   .to('.canvas3', 10, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" })
+  .set('.scene-three-preview', { zIndex: '5' })
 
 
 //scene1
@@ -171,7 +180,36 @@ const scene2 = new ScrollMagic.Scene({
   .setPin('.scene-two-trigger')
   .addIndicators()
   .addTo(controller);;
+//animations
+const thirdScene = new TimelineMax();
 
+thirdScene
+  .from('.scene-three__title', 1, { y: '200%', opacity: 0 })
+  .to('.scene-three__subtitle-word_1', .5, { opacity: 1, x: '65%' })
+  .to('.scene-three__subtitle-word_1', .5, { x: '14%' })
+  .to('.scene-three__subtitle-word_3', .5, { opacity: 1, x: '-14%' }, '-=.5')
+  .to('.scene-three__subtitle-word_1', .5, { x: '0%' })
+  .to('.scene-three__subtitle-word_3', .5, { x: '0%' }, '-=.5')
+  .to('.scene-three__subtitle-word_2', .5, { opacity: 1, y: '0%' }, '-=.5')
+  .to('.scene-three__title', .5, { y: '-20%' })
+  .to('.scene-three__num', .5, { opacity: 0 }, '-=.5')
+  .to('.scene-three__text', .5, { opacity: 1, y: '-50%' }, '-=.5')
+  .set('.scene-three-postview', { marginTop: '-100vh' })
+
+
+
+
+//scene1
+const scene3 = new ScrollMagic.Scene({
+  triggerElement: '.scene-three-trigger',
+  triggerHook: 50,
+  duration: '100%'
+})
+
+  .setTween(thirdScene)
+  .setPin('.scene-three-trigger')
+  .addIndicators()
+  .addTo(controller);;
 
 
 function init() {

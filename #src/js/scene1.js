@@ -18,7 +18,7 @@ firstScene
   .to('.scene-one__box', 6, { height: '650px', top: '-128%' })
   .to('.scene-one__box-title', 6, { y: "30%" })
   .to('.scene-one__box-num', 6, { opacity: 1, y: '30%' })
-  .set('.scene-two', { marginTop: '-50%' }, '+=.5')
+  .set('.scene-two', { marginTop: '-100vh' }, '+=.5')
 
 
 //scene1
