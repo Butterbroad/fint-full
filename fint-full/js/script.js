@@ -55,7 +55,7 @@ function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecoun
   const context = canvas.getContext("2d");
 
   const currentFrame = index => {
-    let pathToImg = `${path}/${index.toString().padStart(4, '0')}.${imgFotmat}`
+    let pathToImg = `${path}/${index.toString().padStart(4, '0')}.${imgFotmat || 'webp'}`
     return pathToImg;
   }
   const preloadImages = () => {
@@ -181,9 +181,9 @@ const scene2 = new ScrollMagic.Scene({
   .addIndicators()
   .addTo(controller);;
 //animations
-const thirdScene = new TimelineMax();
+const thirdScenePrev = new TimelineMax();
 
-thirdScene
+thirdScenePrev
   .from('.scene-three__title', 1, { y: '200%', opacity: 0 })
   .to('.scene-three__subtitle-word_1', .5, { opacity: 1, x: '65%' })
   .to('.scene-three__subtitle-word_1', .5, { x: '14%' })
@@ -199,15 +199,87 @@ thirdScene
 
 
 
-//scene1
-const scene3 = new ScrollMagic.Scene({
+//scene3
+const scene3prev = new ScrollMagic.Scene({
   triggerElement: '.scene-three-trigger',
   triggerHook: 50,
   duration: '100%'
 })
 
-  .setTween(thirdScene)
+  .setTween(thirdScenePrev)
   .setPin('.scene-three-trigger')
+  .addIndicators()
+  .addTo(controller);
+
+
+
+
+
+
+
+const thirdScenePost = new TimelineMax();
+
+thirdScenePost
+  .to('.iphone', .1, { opacity: 1 }, '+=2.5')
+  .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+  .set('.canvas5', { opacity: 0 })
+  .set('.iphone', { display: 'none' })
+  .set('.scene-four', { marginTop: '-200vh' })
+
+
+//scene3(2)
+const scene3post = new ScrollMagic.Scene({
+  triggerElement: '.scene-three-trigger_2',
+  triggerHook: 30,
+  duration: '175%'
+})
+  .setTween(thirdScenePost)
+  .setPin('.scene-three-trigger_2')
+  .addIndicators()
+  .addTo(controller);
+;
+//animations
+const fourthScene = new TimelineMax();
+
+fourthScene
+  .to('.scene-four__title', 1, { y: '-50%' }, '+=1')
+  .to('.scene-four__num', 1, { opacity: 0 }, '-=1')
+  .to('.scene-four__text', 1, { opacity: 1, y: '-300%' }, '-=1')
+  .set('.scene-five', { marginTop: '-100vh' })
+
+
+
+
+//scene4
+const scene4 = new ScrollMagic.Scene({
+  triggerElement: '.scene-four-trigger',
+  triggerHook: 100,
+  duration: '100%'
+})
+
+  .setTween(fourthScene)
+  .setPin('.scene-four-trigger')
+  .addIndicators()
+  .addTo(controller);;
+//animations
+const fifthScene = new TimelineMax();
+
+fifthScene
+  .to('.scene-five__hero', 2, { scale: 1 })
+  .set('.scene-five', { backgroundColor: '#EDEDED' })
+  .set('.scene-five', { marginTop: '0' })
+
+
+
+//scene4
+const scene5 = new ScrollMagic.Scene({
+  triggerElement: '.scene-five',
+  triggerHook: 100,
+  duration: '100%'
+})
+
+  .setTween(fifthScene)
+  .setPin('.scene-five')
   .addIndicators()
   .addTo(controller);;
 

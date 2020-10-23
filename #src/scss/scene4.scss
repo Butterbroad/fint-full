@@ -1,0 +1,129 @@
+.scene-four {
+  width: 100%;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #fff;
+  overflow: hidden;
+  z-index: 6;
+  position: sticky;
+  top: 0;
+  // .scene-four__wrapper
+
+  &__wrapper {
+    position: relative;
+    flex-grow: 1;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // .scene-four__title
+
+  &__title {
+    font-family: "Gilroy-Black", sans-serif;
+    text-align: center;
+    position: relative;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+  }
+
+  // .scene-four__num
+
+  &__num {
+    position: absolute;
+    top: -105%;
+    left: 10%;
+    color: #EDEDED;
+    font-size: 343.2px;
+    line-height: 83.5%;
+    font-family: "Gilroy-Medium", sans-serif;
+    z-index: 1;
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 33%;
+      background-color:#fff;
+      width: 100%
+    }
+  }
+
+  // .scene-four__label
+
+  &__label {
+    color: #0A9F30;
+    font-size: 96px;
+    line-height: 83.5%;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 15px;
+  }
+
+    // .scene-four__subtitle
+
+    &__subtitle {
+      font-size: 72px;
+      line-height: 83.5%;
+      color: #000;
+      position: relative;
+      z-index: 2;
+      span {
+        color: #fff;
+        -webkit-text-stroke: 3px #000;
+        display: block;
+        margin-top: 15px;
+      }
+    }
+
+  // .scene-four__text
+
+  &__text {
+    color: #1D1D1F;
+    text-align: center;
+    font-size: 17px;
+    line-height: 20px;
+    opacity: 0;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+.navigation {
+  &.scene-four__navigation {
+    z-index: 3;
+    top: 45%;
+    .navigation__linst-link {
+      animation: none;
+      transition: all .3s ease;
+      &.active {
+        color: #414141;
+        opacity: 1;
+      }
+    }
+    .navigation__line {
+      background: #EDEDED;
+      &::before {
+        top: 300px;
+        width: 100%;
+        height: 100px;
+        background-color: #0A9F30;
+        animation: none;
+      }
+    }
+  }
+} 
+
+
+.scene-four-trigger {
+  height: 100vh;
+  opacity: 0;
+  background-color: #fff;
+  pointer-events: none;
+  position: relative;
+  overflow: hidden;
+}
