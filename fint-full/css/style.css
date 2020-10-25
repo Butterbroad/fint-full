@@ -1344,6 +1344,10 @@ input:focus::placeholder {
   position: relative;
 }
 
+.logo-white {
+  fill: #fff;
+}
+
 .scene-two {
   width: 100%;
   display: -webkit-box;

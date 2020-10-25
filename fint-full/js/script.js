@@ -22,8 +22,11 @@ footerBtn.addEventListener('click', () => {
 
 
 
+
+
 //canvas1
 const html = document.documentElement;
+const body = document.querySelector('body');
 const canvas1 = document.getElementById("canvas1");
 const sceneOne = document.querySelector('.scene-one');
 const hero = document.querySelector('.hero');
@@ -47,15 +50,38 @@ const sceneThreePostview = document.querySelector('.scene-three-postview');
 let margin4 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight + sceneThree.scrollHeight + 2600;
 const canvas5 = document.getElementById("canvas5");
 
-//sticky section
-const sticky = document.querySelector('.sticky');
 
+const logo = document.querySelectorAll('.logo-white')
+//logo change
+function changeLogo() {
+  const top = html.getBoundingClientRect().top
+  if (top < `-${margin1}`) {
+    logo.forEach(item => {
+      item.style.fill = '#000';
+    })
+  } else {
+    logo.forEach(item => {
+      item.style.fill = '#fff';
+    })
+  }
+}
 
-function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecount, path, imgFotmat) {
+//img format
+function getFormat(imgFormat) {
+  if (body.classList.contains('webp') && imgFormat === 'svg') {
+    return 'svg'
+  } else if (body.classList.contains('webp')) {
+    return 'webp'
+  } else {
+    return imgFormat
+  }
+}
+
+function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecount, path, imgFormat) {
   const context = canvas.getContext("2d");
 
   const currentFrame = index => {
-    let pathToImg = `${path}/${index.toString().padStart(4, '0')}.${imgFotmat || 'webp'}`
+    let pathToImg = `${path}/${index.toString().padStart(4, '0')}.${getFormat(imgFormat)}`
     return pathToImg;
   }
   const preloadImages = () => {
@@ -78,8 +104,7 @@ function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecoun
   }
 
   window.addEventListener('scroll', () => {
-
-
+    changeLogo();
 
     const scrollTop = html.scrollTop - margin;
     const maxScrollTop = wrapper.scrollHeight - window.innerHeight;
@@ -107,7 +132,8 @@ getCanvas(canvas5, 1920, 1080, sceneThreePostview, margin4, 64, '../img/scene3/a
 
 
 
-
+//sticky section
+// const sticky = document.querySelector('.sticky');
 
 // function showTriggerSection(section) {
 //   let top = section.getBoundingClientRect().top;
