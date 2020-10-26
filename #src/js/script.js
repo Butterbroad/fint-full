@@ -57,6 +57,29 @@ burger.addEventListener('click', () => {
 });
 
 
+//logo change,mouse show,burger change
+const logo = document.querySelectorAll('.logo-white');
+const mouse = document.querySelector('.footer__mouse');
+
+function changeItems() {
+  const top = html.getBoundingClientRect().top;
+  if (top < `-${margin1}`) {
+    logo.forEach(item => {
+      item.style.fill = '#000';
+    })
+    mouse.style.display = 'block';
+    burger.classList.add('black');
+  } else {
+    logo.forEach(item => {
+      item.style.fill = '#fff';
+    })
+    mouse.style.display = 'none';
+    burger.classList.remove('black');
+  }
+}
+window.addEventListener('scroll', () => {
+  changeItems();
+});
 
 
 

@@ -57,6 +57,29 @@ burger.addEventListener('click', () => {
 });
 
 
+//logo change,mouse show,burger change
+const logo = document.querySelectorAll('.logo-white');
+const mouse = document.querySelector('.footer__mouse');
+
+function changeItems() {
+  const top = html.getBoundingClientRect().top;
+  if (top < `-${margin1}`) {
+    logo.forEach(item => {
+      item.style.fill = '#000';
+    })
+    mouse.style.display = 'block';
+    burger.classList.add('black');
+  } else {
+    logo.forEach(item => {
+      item.style.fill = '#fff';
+    })
+    mouse.style.display = 'none';
+    burger.classList.remove('black');
+  }
+}
+window.addEventListener('scroll', () => {
+  changeItems();
+});
 
 
 
@@ -93,24 +116,7 @@ const sceneThreePostview = document.querySelector('.scene-three-postview');
 let margin4 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight + sceneThree.scrollHeight + 2600;
 const canvas5 = document.getElementById("canvas5");
 
-//logo change and mouse show
-const logo = document.querySelectorAll('.logo-white');
-const mouse = document.querySelector('.footer__mouse');
 
-function changeLogo() {
-  const top = html.getBoundingClientRect().top;
-  if (top < `-${margin1}`) {
-    logo.forEach(item => {
-      item.style.fill = '#000';
-    })
-    mouse.style.display = 'block';
-  } else {
-    logo.forEach(item => {
-      item.style.fill = '#fff';
-    })
-    mouse.style.display = 'none';
-  }
-}
 
 
 //img format
@@ -151,7 +157,6 @@ function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecoun
   }
 
   window.addEventListener('scroll', () => {
-    changeLogo();
 
     const scrollTop = html.scrollTop - margin;
     const maxScrollTop = wrapper.scrollHeight - window.innerHeight;

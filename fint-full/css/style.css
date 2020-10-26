@@ -2286,6 +2286,7 @@ input:focus::placeholder {
           transform: rotate(45deg);
   top: 19px;
   left: 10px;
+  background-color: #fff !important;
 }
 
 .navigation-md__burger.active::after {
@@ -2294,12 +2295,22 @@ input:focus::placeholder {
           transform: rotate(-45deg);
   top: 19px;
   left: 10px;
+  background-color: #fff !important;
 }
 
 .navigation-md__burger.active span {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
+}
+
+.navigation-md__burger.black span {
+  background-color: #000;
+}
+
+.navigation-md__burger.black::before,
+.navigation-md__burger.black::after {
+  background-color: #000;
 }
 
 .navigation-md__line {

@@ -76,17 +76,28 @@
             transform: rotate(45deg);
             top: 19px;
             left: 10px;
+            background-color: #fff !important;
         }
 
         &::after {
             transform: rotate(-45deg);
             top: 19px;
             left: 10px;
+            background-color: #fff !important;
         }
 
         span {
             transform: scale(0);
         }
+    }
+    &.black {
+      span {
+        background-color: #000;
+      }
+      &::before,
+      &::after {
+         background-color: #000;
+      }
     }
 }
 
