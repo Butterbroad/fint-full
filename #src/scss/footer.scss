@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  z-index: 30;
+  z-index: 32;
   &.active {
     height: 97%;
     .footer__form {
@@ -60,6 +60,16 @@
   &__form {
     background-color: #fff;
     min-height: 100vh;
+    display: none;
+  }
+  
+  // .footer__mouse
+
+  &__mouse {
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
     display: none;
   }
 }

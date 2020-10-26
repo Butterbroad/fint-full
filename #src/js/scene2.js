@@ -1,6 +1,8 @@
 //animations
 const secondScene = new TimelineMax();
 
+
+
 secondScene
   .to('.scene-two__title', 2, { x: 0 })
   .to('.scene-title__num_2', 2, { opacity: 0 }, '-=2')

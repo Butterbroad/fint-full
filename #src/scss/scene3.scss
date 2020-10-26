@@ -167,7 +167,7 @@
   &.scene-three__navigation {
     z-index: 3;
     top: 50%;
-    .navigation__linst-link {
+    .navigation__list-link {
       animation: none;
       transition: all .3s ease;
       &.active {
@@ -184,6 +184,9 @@
         background-color: #0A9F30;
         animation: none;
       }
+    }
+    @media (max-width: 1024px) {
+      display: none;
     }
   }
 }  
@@ -209,6 +212,11 @@
   z-index: 6;
   position: sticky;
   top: 0;
+  
+  @media (max-width: 1366px) {
+    height: 300vh;
+  }
+  
   #canvas5 {
     position: relative;
     max-width: 100%;
@@ -222,11 +230,34 @@
     display: block;
     transform: scale(1.2);
     opacity: 0;
+    @media (min-width: 1921px) {
+      left: calc(46% + 43px);
+      top: calc(4% - 3px);
+    }
+    @media (min-width: 1920px) and (min-height: 1199px) {
+      left: calc(45% + 35px);
+      top: calc(9% + 10px);
+    }
+    @media (max-width: 1600px) and (min-height: 900px) {
+      left: calc(45% + 30px);
+      top: calc(10% + 10px);
+    }
+    @media (max-width: 1440px) and (min-height: 900px) {
+      left: calc(45% + 25px);
+      top: calc(8% + 10px);
+    }
+    @media (max-width: 1366px) {
+      left: calc(45% + 25px);
+      top: calc(6% + 10px);
+    }
   }
 
   // .scene-three-postview__wrapper
 
   &__wrapper {
+  }
+  @media (min-width: 1921px) {
+    height: 400vh;
   }
 }
 

@@ -97,7 +97,7 @@
   &.scene-four__navigation {
     z-index: 3;
     top: 45%;
-    .navigation__linst-link {
+    .navigation__list-link {
       animation: none;
       transition: all .3s ease;
       &.active {
@@ -114,6 +114,9 @@
         background-color: #0A9F30;
         animation: none;
       }
+    }
+    @media (max-width: 1024px) {
+      display: none;
     }
   }
 } 

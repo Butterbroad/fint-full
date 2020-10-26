@@ -279,9 +279,9 @@
   &__list-item {
   }
 
-  // .navigation__linst-link
+  // .navigation__list-link
 
-  &__linst-link {
+  &__list-link {
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
@@ -381,6 +381,9 @@
       opacity: 1; }
     100% {
       opacity: 0; } 
+  }
+  @media (max-width: 1024px) {
+    display: none;
   }
 }
 

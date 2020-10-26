@@ -18,6 +18,8 @@
 
   &__wrapper {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   // .scene-one__canvas
@@ -46,6 +48,9 @@
     width: 100%;
     position: relative;
     transform: translateY(60%);
+    @media (max-width: 1366px) {
+      transform: translateY(30%);
+    }
   }
 
   // .scene-one__title
@@ -258,7 +263,7 @@
 .navigation {
   &.scene-one__navigation {
     top: 25%;
-    .navigation__linst-link {
+    .navigation__list-link {
       animation: none;
       transition: all .3s ease;
       &.active {
@@ -274,6 +279,9 @@
         background-color: #0A9F30;
         animation: none;
       }
+    }
+    @media (max-width: 1024px) {
+      display: none;
     }
   }
 }  

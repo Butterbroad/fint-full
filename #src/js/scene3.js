@@ -30,19 +30,38 @@ const scene3prev = new ScrollMagic.Scene({
   .addTo(controller);
 
 
-
-
-
-
-
 const thirdScenePost = new TimelineMax();
 
-thirdScenePost
-  .to('.iphone', .1, { opacity: 1 }, '+=2.5')
-  .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
-  .set('.canvas5', { opacity: 0 })
-  .set('.iphone', { display: 'none' })
-  .set('.scene-four', { marginTop: '-200vh' })
+
+if (window.innerWidth < 1601 && innerHeight > 899) {
+  thirdScenePost
+    .to('.iphone', .1, { opacity: 1 }, '+=5')
+    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .set('.canvas5', { opacity: 0 })
+    .set('.iphone', { display: 'none' })
+    .set('.scene-four', { marginTop: '-200vh' })
+} else if (window.innerWidth < 1367) {
+  thirdScenePost
+    .to('.iphone', .1, { opacity: 1 }, '+=12')
+    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .set('.canvas5', { opacity: 0 })
+    .set('.iphone', { display: 'none' })
+    .set('.scene-four', { marginTop: '-200vh' })
+} else if (window.innerWidth < 1281) {
+  thirdScenePost
+    .to('.iphone', .1, { opacity: 1 }, '+=25')
+    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .set('.canvas5', { opacity: 0 })
+    .set('.iphone', { display: 'none' })
+    .set('.scene-four', { marginTop: '-200vh' })
+} else {
+  thirdScenePost
+    .to('.iphone', .1, { opacity: 1 }, '+=2.5')
+    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .set('.canvas5', { opacity: 0 })
+    .set('.iphone', { display: 'none' })
+    .set('.scene-four', { marginTop: '-200vh' })
+}
 
 
 //scene3(2)

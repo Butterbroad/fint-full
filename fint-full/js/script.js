@@ -8,14 +8,57 @@ if (paramLinks.length > 0) {
 }
 
 //footer button
-const footerBtn = document.querySelector('.footer__btn-trigger');
-footerBtn.addEventListener('click', () => {
-  footerBtn.classList.toggle('active');
-  footerBtn.classList.contains('active') ? footerBtn.innerText = "Скрыть" : footerBtn.innerText = "Регистрация";
-  const footer = document.querySelector('.footer');
-  footer.classList.toggle('active');
-  document.body.classList.toggle('lock');
+// const footerBtn = document.querySelector('.footer__btn-trigger');
+// footerBtn.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   footerBtn.classList.toggle('active');
+//   footerBtn.classList.contains('active') ? footerBtn.innerText = "Скрыть" : footerBtn.innerText = "Регистрация";
+//   const footer = document.querySelector('.footer');
+//   footer.classList.toggle('active');
+//   document.body.classList.toggle('lock');
+// });
+
+//hero navigation 
+const navigation = document.querySelectorAll('.navigation__list-link');
+
+navigation.forEach(elem => {
+  elem.addEventListener('click', e => {
+    e.preventDefault();
+
+    if (elem.classList.contains('navigation__list-link_1')) {
+      const section2 = document.querySelector('#section2');
+      section2.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    } else if (elem.classList.contains('navigation__list-link_2')) {
+      const section3 = document.querySelector('#section3');
+      section3.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    } else if (elem.classList.contains('navigation__list-link_3')) {
+      const section4 = document.querySelector('#section4');
+      section4.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    } else if (elem.classList.contains('navigation__list-link_4')) {
+      const section5 = document.querySelector('#section5');
+      section5.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    } else {
+      const section6 = document.querySelector('#section6');
+      section6.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }
+  });
+})
+
+//navigation-md
+const burger = document.querySelector('.navigation-md__burger');
+burger.addEventListener('click', () => {
+  const navigationMd = document.querySelector('.navigation-md');
+  navigationMd.classList.toggle('active');
+  burger.classList.toggle('active');
 });
+
+
+
+
 
 
 
@@ -50,21 +93,25 @@ const sceneThreePostview = document.querySelector('.scene-three-postview');
 let margin4 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight + sceneThree.scrollHeight + 2600;
 const canvas5 = document.getElementById("canvas5");
 
+//logo change and mouse show
+const logo = document.querySelectorAll('.logo-white');
+const mouse = document.querySelector('.footer__mouse');
 
-const logo = document.querySelectorAll('.logo-white')
-//logo change
 function changeLogo() {
-  const top = html.getBoundingClientRect().top
+  const top = html.getBoundingClientRect().top;
   if (top < `-${margin1}`) {
     logo.forEach(item => {
       item.style.fill = '#000';
     })
+    mouse.style.display = 'block';
   } else {
     logo.forEach(item => {
       item.style.fill = '#fff';
     })
+    mouse.style.display = 'none';
   }
 }
+
 
 //img format
 function getFormat(imgFormat) {
@@ -125,35 +172,19 @@ getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2',
 
 getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
 
-getCanvas(canvas4, 1920, 1080, sceneThreePreview, margin3, 18, '../img/scene3/animation4', 'jpg');
+getCanvas(canvas4, 1920, 1080, sceneThreePreview, margin3, 17, '../img/scene3/animation4', 'jpg');
 
 getCanvas(canvas5, 1920, 1080, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
-
-
-
-
-//sticky section
-// const sticky = document.querySelector('.sticky');
-
-// function showTriggerSection(section) {
-//   let top = section.getBoundingClientRect().top;
-//   if (top === 0 || top < 0) {
-//     section.style.opacity = 1;
-//     section.style.pointerEvents = "all";
-//   } else {
-//     section.style.opacity = 0;
-//     section.style.pointerEvents = "none";
-//   }
-// }
-// showTriggerSection(sticky);
+;
 //animations
 const controller = new ScrollMagic.Controller();
 const firstScene = new TimelineMax();
 
+
 firstScene
   .to('.player-info', 5, { opacity: 1 })
   .to('.player-info', 5, { opacity: 0 }, "+=1")
-  .from('.scene-one__box', 10, { left: "-100%" })
+  .from('.scene-one__box', 10, { left: "-150%" })
   .from('.scene-one__content', 30, { y: '400%' }, '-=30')
   .to('.scene-one__title', 6, { scale: .8, y: '0' })
   .to('.scene-title__num_1', 6, { opacity: 0 }, '-=6')
@@ -185,6 +216,8 @@ const scene1 = new ScrollMagic.Scene({
 
 //animations
 const secondScene = new TimelineMax();
+
+
 
 secondScene
   .to('.scene-two__title', 2, { x: 0 })
@@ -238,19 +271,38 @@ const scene3prev = new ScrollMagic.Scene({
   .addTo(controller);
 
 
-
-
-
-
-
 const thirdScenePost = new TimelineMax();
 
-thirdScenePost
-  .to('.iphone', .1, { opacity: 1 }, '+=2.5')
-  .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
-  .set('.canvas5', { opacity: 0 })
-  .set('.iphone', { display: 'none' })
-  .set('.scene-four', { marginTop: '-200vh' })
+
+if (window.innerWidth < 1601 && innerHeight > 899) {
+  thirdScenePost
+    .to('.iphone', .1, { opacity: 1 }, '+=5')
+    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .set('.canvas5', { opacity: 0 })
+    .set('.iphone', { display: 'none' })
+    .set('.scene-four', { marginTop: '-200vh' })
+} else if (window.innerWidth < 1367) {
+  thirdScenePost
+    .to('.iphone', .1, { opacity: 1 }, '+=12')
+    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .set('.canvas5', { opacity: 0 })
+    .set('.iphone', { display: 'none' })
+    .set('.scene-four', { marginTop: '-200vh' })
+} else if (window.innerWidth < 1281) {
+  thirdScenePost
+    .to('.iphone', .1, { opacity: 1 }, '+=25')
+    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .set('.canvas5', { opacity: 0 })
+    .set('.iphone', { display: 'none' })
+    .set('.scene-four', { marginTop: '-200vh' })
+} else {
+  thirdScenePost
+    .to('.iphone', .1, { opacity: 1 }, '+=2.5')
+    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .set('.canvas5', { opacity: 0 })
+    .set('.iphone', { display: 'none' })
+    .set('.scene-four', { marginTop: '-200vh' })
+}
 
 
 //scene3(2)

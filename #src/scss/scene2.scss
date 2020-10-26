@@ -17,6 +17,9 @@
     top: 0;
     right: 0;
     transform: translate(10px, -35%);
+    @media (max-width: 1366px) {
+      transform: translate(20%, -23%);
+    }
   }
   #canvas3 {
     max-width: 360px;
@@ -43,6 +46,9 @@
 
     &__box {
      transform: translateY(50%);
+     @media (max-width: 1366px) {
+      transform: translateY(30%);
+      }
     }
 
   // .scene-two__title
@@ -89,7 +95,7 @@
 .navigation {
   &.scene-two__navigation {
     top: 25%;
-    .navigation__linst-link {
+    .navigation__list-link {
       animation: none;
       transition: all .3s ease;
       &.active {
@@ -106,6 +112,9 @@
         background-color: #0A9F30;
         animation: none;
       }
+    }
+    @media (max-width: 1024px) {
+      display: none;
     }
   }
 }  

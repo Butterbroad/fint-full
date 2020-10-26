@@ -24,21 +24,25 @@ const sceneThreePostview = document.querySelector('.scene-three-postview');
 let margin4 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight + sceneThree.scrollHeight + 2600;
 const canvas5 = document.getElementById("canvas5");
 
+//logo change and mouse show
+const logo = document.querySelectorAll('.logo-white');
+const mouse = document.querySelector('.footer__mouse');
 
-const logo = document.querySelectorAll('.logo-white')
-//logo change
 function changeLogo() {
-  const top = html.getBoundingClientRect().top
+  const top = html.getBoundingClientRect().top;
   if (top < `-${margin1}`) {
     logo.forEach(item => {
       item.style.fill = '#000';
     })
+    mouse.style.display = 'block';
   } else {
     logo.forEach(item => {
       item.style.fill = '#fff';
     })
+    mouse.style.display = 'none';
   }
 }
+
 
 //img format
 function getFormat(imgFormat) {
@@ -99,24 +103,6 @@ getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2',
 
 getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
 
-getCanvas(canvas4, 1920, 1080, sceneThreePreview, margin3, 18, '../img/scene3/animation4', 'jpg');
+getCanvas(canvas4, 1920, 1080, sceneThreePreview, margin3, 17, '../img/scene3/animation4', 'jpg');
 
 getCanvas(canvas5, 1920, 1080, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
-
-
-
-
-//sticky section
-// const sticky = document.querySelector('.sticky');
-
-// function showTriggerSection(section) {
-//   let top = section.getBoundingClientRect().top;
-//   if (top === 0 || top < 0) {
-//     section.style.opacity = 1;
-//     section.style.pointerEvents = "all";
-//   } else {
-//     section.style.opacity = 0;
-//     section.style.pointerEvents = "none";
-//   }
-// }
-// showTriggerSection(sticky)
