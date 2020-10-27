@@ -2845,6 +2845,11 @@ input:focus::placeholder {
 }
 
 @media (max-width: 1024px) and (min-height: 1365px) {
+  .hero {
+    background-size: 2000px;
+    padding: 35% 0;
+  }
+
   .scene-one__wrapper {
     padding-top: 25%;
   }

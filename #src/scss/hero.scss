@@ -15,6 +15,12 @@
   @media (max-width: 1024px) {
     padding: 160px 0 160px;
   }
+
+  @media (max-width: 1024px) and (min-height: 1365px) {
+    background-size: 2000px;
+    padding: 35% 0;
+  }
+
   @media (max-width: 800px) {
     background-size: contain;
     padding: 50% 0;
