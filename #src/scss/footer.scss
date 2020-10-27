@@ -72,4 +72,17 @@
     transform: translateX(-50%);
     display: none;
   }
+
+  	// .footer__scroll
+
+    &__scroll {
+      position: absolute;
+      bottom: 60px;
+      transform: translateX(-50%);
+      left: 50%;
+      display: none;
+      @media (max-width: 1024px) {
+        display: block;
+      }
+    }
 }

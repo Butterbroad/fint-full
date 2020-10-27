@@ -28,6 +28,10 @@
     position: relative;
     margin-bottom: 35px;
     text-transform: uppercase;
+
+    @media (max-width: 1024px) {
+      transform: translateY(50%);
+    }
   }
 
   // .scene-four__num
@@ -50,6 +54,12 @@
       background-color:#fff;
       width: 100%
     }
+
+    @media (max-width: 1024px) {
+      font-size: 238.76px;
+      line-height: 83.5%;
+      top: -90%;
+    }
   }
 
   // .scene-four__label
@@ -61,6 +71,10 @@
     position: relative;
     z-index: 2;
     margin-bottom: 15px;
+
+    @media (max-width: 1024px) {
+      font-size: 66.7859px;
+    }
   }
 
     // .scene-four__subtitle
@@ -77,6 +91,10 @@
         display: block;
         margin-top: 15px;
       }
+
+      @media (max-width: 1024px) {
+        font-size: 50.0894px;
+      }
     }
 
   // .scene-four__text
@@ -89,6 +107,11 @@
     opacity: 0;
     p {
       margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      margin-top: 20px;
+      transform: translateY(100%);
     }
   }
 }

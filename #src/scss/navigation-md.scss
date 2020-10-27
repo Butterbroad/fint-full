@@ -38,6 +38,10 @@
     height: 40px;
     border-radius: 50%;
     transition: all .3s ease;
+    display: none;
+    @media (max-width: 1024px) {
+      display: block;
+    }
 
     span {
         width: 24px;

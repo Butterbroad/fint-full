@@ -17,8 +17,20 @@
     top: 0;
     right: 0;
     transform: translate(10px, -35%);
+    @media (max-width: 1440px) {
+      transform: translate(15%, -35%);
+    }
+    @media (max-width: 1280px) {
+      max-width: 510px;
+      max-height: 711px;
+    }
     @media (max-width: 1366px) {
       transform: translate(20%, -23%);
+    }
+    @media (max-width: 1024px) {
+      max-width: 440px;
+      max-height: 611px;
+      transform: translate(-16%, -20%)
     }
   }
   #canvas3 {
@@ -46,8 +58,20 @@
 
     &__box {
      transform: translateY(50%);
+
      @media (max-width: 1366px) {
       transform: translateY(30%);
+      }
+
+      @media (max-width: 1024px) and (min-height: 1365px) {
+        transform: translateY(90%);
+      }
+
+      @media (max-width: 800px) {
+        transform: translateY(90%);
+      }
+      @media (max-width: 768px) {
+        transform: translateY(55%);
       }
     }
 
@@ -56,6 +80,10 @@
   &__title {
     margin-top: 30px;
     transform: translateX(20%);
+
+    @media (max-width: 1024px) {
+      margin-bottom: 30px;
+    }
   }
 
   .scene-title {
@@ -72,6 +100,10 @@
     &__num {
       font-size: 221.45px;
       line-height: 83.5%;
+      @media (max-width: 1024px) {
+        top: -90%;
+        right: 5%;
+      }
     }
   }
 

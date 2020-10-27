@@ -9,6 +9,9 @@
   position: sticky;
   top: 0;
 
+  @media (max-width: 1024px) {
+    height: 300vh;
+  }
   // .scene-one__navigation
 
   &__navigation {
@@ -20,6 +23,16 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    
+    @media (max-width: 1024px) and (min-height: 1365px) {
+      padding-top: 25%;
+    }
+    @media (max-width: 800px) {
+      padding-top: 30%;
+    }
+    @media (max-width: 768px) {
+      padding-top: 15%;
+    }
   }
 
   // .scene-one__canvas
@@ -32,6 +45,21 @@
       max-width: 620px;
       max-height: 860px;
       transform: translateY(-5%);
+
+      @media (max-width: 1280px) {
+        max-width: 510px;
+        max-height: 711px;
+      }
+
+      @media (max-width: 1024px) {
+        max-width: 440px;
+        max-height: 611px;
+        transform: translate(-100%, 5%)
+      }
+
+      @media (max-width: 800px) {
+        transform: translate(-70%, 5%)
+      }
     }
 
     // .scene-one__canvas_1
@@ -50,6 +78,13 @@
     transform: translateY(60%);
     @media (max-width: 1366px) {
       transform: translateY(30%);
+    }
+    @media (max-width: 1024px) {
+      max-width: 485px;
+      transform: translateY(120%);
+    }
+    @media (max-width: 768px) {
+      transform: translateY(170%);
     }
   }
 
@@ -76,6 +111,15 @@
     width: 106px;
     height: 260px;
     overflow: hidden;
+
+    @media (max-width: 1024px) {
+      max-width: 485px;
+      width: 100%;
+      height: 470px;
+      left: 0;
+      z-index: 5;
+      transform: translateY(300%);
+    }
   }
 
   // .scene-one__box-title
@@ -91,6 +135,15 @@
     width: 100%;
     opacity: 0;
     transform: translateX(30%);
+
+    @media (max-width: 1024px) {
+      opacity: 1;
+      max-width: 485px;
+      font-size: 56.3682px;
+      line-height: 83.5%;
+      transform: translateX(0%);
+      padding: 60px 0 0 35px;
+    }
   }
 
   // .scene-one__box-num
@@ -115,6 +168,13 @@
       background-repeat: no-repeat;
       background-position: center;
     }
+
+    @media (max-width: 1024px) {
+      font-size: 316.993px;
+      line-height: 83.5%;
+      opacity: 1;
+      transform: translateY(10%);
+    }
   }
 }
 
@@ -127,6 +187,10 @@
   color: #000;
   font-style: italic;
   opacity: 0;
+
+  @media (max-width: 1024px) {
+    display: none !important;
+  }
 
   // .player-info__name
 
@@ -180,12 +244,15 @@
     position: absolute;
     bottom: -10px;
     left: 0;
+    @media (max-width: 1024px) {
+      height: 6px;
+    }
   }
   // .scene-title__text
 
   &__text {
-    font-size: 96px;
-    line-height: 83.5%;
+    font-size: 86px;
+    line-height: 78.5%;
     color: #000;
     font-family: "Gilroy-Bold", sans-serif;
     z-index: 2;
@@ -194,24 +261,40 @@
       display: block;
       color: #0A9F30;
     }
+
+    @media (max-width: 1024px) {
+      font-size: 50px;
+      line-height: 42px;
+    }
   }
 
   // .scene-title__num
 
   &__num {
     position: absolute;
-    right: 0;
+    right: 10%;
     top: -95px;
     font-size: 343.2px;
     line-height: 83.5%;
     color: #EDEDED;
     font-family: "Gilroy-Regular", sans-serif;
+
+    @media (max-width: 1024px) {
+      font-size: 212.96px;
+      line-height: 83.5%;
+      right: 10%;
+      top: -25%;
+    }
   }
 }
 
 .scene-list {
   max-width: 780px;
   width: 100%;
+
+  @media (max-width: 1024px) {
+    transform: translateY(100%);
+  }
   // .scene-list__item
 
   &__item {

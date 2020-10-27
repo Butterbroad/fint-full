@@ -57,7 +57,7 @@ burger.addEventListener('click', () => {
 });
 
 
-//logo change,mouse show,burger change
+//logo change,mouse show,burger change,scroll show
 const logo = document.querySelectorAll('.logo-white');
 const mouse = document.querySelector('.footer__mouse');
 
@@ -67,7 +67,9 @@ function changeItems() {
     logo.forEach(item => {
       item.style.fill = '#000';
     })
-    mouse.style.display = 'block';
+    if (window.innerWidth > 1024) {
+      mouse.style.display = 'block';
+    }
     burger.classList.add('black');
   } else {
     logo.forEach(item => {
@@ -79,6 +81,17 @@ function changeItems() {
 }
 window.addEventListener('scroll', () => {
   changeItems();
+});
+
+//scene five list
+const listTrigger = document.querySelectorAll('.scene-content__column-trigger');
+listTrigger.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const firstParent = trigger.parentElement;
+    const secondParent = firstParent.parentElement;
+
+    secondParent.classList.toggle('active');
+  })
 });
 
 

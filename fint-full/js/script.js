@@ -57,7 +57,7 @@ burger.addEventListener('click', () => {
 });
 
 
-//logo change,mouse show,burger change
+//logo change,mouse show,burger change,scroll show
 const logo = document.querySelectorAll('.logo-white');
 const mouse = document.querySelector('.footer__mouse');
 
@@ -67,7 +67,9 @@ function changeItems() {
     logo.forEach(item => {
       item.style.fill = '#000';
     })
-    mouse.style.display = 'block';
+    if (window.innerWidth > 1024) {
+      mouse.style.display = 'block';
+    }
     burger.classList.add('black');
   } else {
     logo.forEach(item => {
@@ -79,6 +81,17 @@ function changeItems() {
 }
 window.addEventListener('scroll', () => {
   changeItems();
+});
+
+//scene five list
+const listTrigger = document.querySelectorAll('.scene-content__column-trigger');
+listTrigger.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    const firstParent = trigger.parentElement;
+    const secondParent = firstParent.parentElement;
+
+    secondParent.classList.toggle('active');
+  })
 });
 
 
@@ -177,33 +190,49 @@ getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2',
 
 getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
 
-getCanvas(canvas4, 1920, 1080, sceneThreePreview, margin3, 17, '../img/scene3/animation4', 'jpg');
+getCanvas(canvas4, 1920, 2000, sceneThreePreview, margin3, 17, '../img/scene3/animation4', 'jpg');
 
-getCanvas(canvas5, 1920, 1080, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
+getCanvas(canvas5, 1920, 2000, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
+
+
 ;
 //animations
 const controller = new ScrollMagic.Controller();
 const firstScene = new TimelineMax();
 
 
-firstScene
-  .to('.player-info', 5, { opacity: 1 })
-  .to('.player-info', 5, { opacity: 0 }, "+=1")
-  .from('.scene-one__box', 10, { left: "-150%" })
-  .from('.scene-one__content', 30, { y: '400%' }, '-=30')
-  .to('.scene-one__title', 6, { scale: .8, y: '0' })
-  .to('.scene-title__num_1', 6, { opacity: 0 }, '-=6')
-  .from('.scene-one__list', 6, { opacity: 0, y: '30%' })
-  .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
-  .set('.scene-one__box', { zIndex: 10 })
-  .to('.scene-one__box', 12, { left: 0, width: '700px', height: '147', y: '100%' })
-  .to('.scene-one__title', 6, { y: '-13%' }, '-=12')
-  .to('.scene-one__box-title', 6, { opacity: 1, x: 0 })
-  .to('.scene-one__box', 6, { height: '650px', top: '-128%' })
-  .to('.scene-one__box-title', 6, { y: "30%" })
-  .to('.scene-one__box-num', 6, { opacity: 1, y: '30%' })
-  .set('.scene-two', { marginTop: '-100vh' }, '+=.5')
 
+
+
+if (window.innerWidth < 1025) {
+  firstScene
+    .to('.canvas1', 5, { x: '-20%' }, '+=1')
+    .from('.scene-one__content', 5, { opacity: 0 }, '-=5')
+    .to('.scene-title__num_1', 10, { opacity: 0 }, '-=5')
+    .to('.scene-one__content', 5, { y: '40%' })
+    .to('.scene-one__list', 5, { opacity: 1, y: '60' }, '-=5')
+    .to('.scene-one__box', 10, { y: '43%' })
+    .set('.scene-two', { marginTop: '-100vh' }, '+=.5')
+
+} else {
+  firstScene
+    .to('.player-info', 5, { opacity: 1 })
+    .to('.player-info', 5, { opacity: 0 }, "+=1")
+    .from('.scene-one__box', 10, { left: "-150%" })
+    .from('.scene-one__content', 30, { y: '400%' }, '-=30')
+    .to('.scene-one__title', 6, { scale: .8, y: '0' })
+    .to('.scene-title__num_1', 6, { opacity: 0 }, '-=6')
+    .from('.scene-one__list', 6, { opacity: 0, y: '30%' })
+    .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
+    .set('.scene-one__box', { zIndex: 10 })
+    .to('.scene-one__box', 12, { left: 0, width: '700px', height: '147', y: '90%' })
+    .to('.scene-one__title', 6, { y: '-13%' }, '-=12')
+    .to('.scene-one__box-title', 6, { opacity: 1, x: 0 })
+    .to('.scene-one__box', 6, { height: '650px', top: '-128%' })
+    .to('.scene-one__box-title', 6, { y: "30%" })
+    .to('.scene-one__box-num', 6, { opacity: 1, y: '30%' })
+    .set('.scene-two', { marginTop: '-100vh' }, '+=.5')
+}
 
 //scene1
 const scene1 = new ScrollMagic.Scene({
@@ -324,13 +353,22 @@ const scene3post = new ScrollMagic.Scene({
 //animations
 const fourthScene = new TimelineMax();
 
-fourthScene
-  .to('.scene-four__title', 1, { y: '-50%' }, '+=1')
-  .to('.scene-four__num', 1, { opacity: 0 }, '-=1')
-  .to('.scene-four__text', 1, { opacity: 1, y: '-300%' }, '-=1')
-  .set('.scene-five', { marginTop: '-100vh' })
 
 
+if (window.innerWidth < 1025) {
+  fourthScene
+    .to('.scene-four__title', 1, { y: '-20%' }, '+=1')
+    .to('.scene-four__num', 1, { opacity: 0 }, '-=1')
+    .to('.scene-four__text', 1, { opacity: 1, y: '-180%' }, '-=1')
+    .set('.scene-five', { marginTop: '-100vh' })
+
+} else {
+  fourthScene
+    .to('.scene-four__title', 1, { y: '-50%' }, '+=1')
+    .to('.scene-four__num', 1, { opacity: 0 }, '-=1')
+    .to('.scene-four__text', 1, { opacity: 1, y: '-300%' }, '-=1')
+    .set('.scene-five', { marginTop: '-100vh' })
+}
 
 
 //scene4
