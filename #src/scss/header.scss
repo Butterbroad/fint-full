@@ -4,10 +4,13 @@
   left: 0;
   width: 100%;
   z-index: 30;
+  .active {
+    background-color: rgba(255,255,255, .5);
+  }
   // .header__wrapper
 
   &__wrapper {
-    height: 70px;
+    height: 55px;
     display: flex;
     align-items: center;
     @media (max-width: 1024px) {

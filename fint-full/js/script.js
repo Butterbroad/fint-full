@@ -19,34 +19,34 @@ if (paramLinks.length > 0) {
 // });
 
 //hero navigation 
-const navigation = document.querySelectorAll('.navigation__list-link');
+// const navigation = document.querySelectorAll('.navigation__list-link');
 
-navigation.forEach(elem => {
-  elem.addEventListener('click', e => {
-    e.preventDefault();
+// navigation.forEach(elem => {
+//   elem.addEventListener('click', e => {
+//     e.preventDefault();
 
-    if (elem.classList.contains('navigation__list-link_1')) {
-      const section2 = document.querySelector('#section2');
-      section2.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     if (elem.classList.contains('navigation__list-link_1')) {
+//       const section2 = document.querySelector('#section2');
+//       section2.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation__list-link_2')) {
-      const section3 = document.querySelector('#section3');
-      section3.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_2')) {
+//       const section3 = document.querySelector('#section3');
+//       section3.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation__list-link_3')) {
-      const section4 = document.querySelector('#section4');
-      section4.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_3')) {
+//       const section4 = document.querySelector('#section4');
+//       section4.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation__list-link_4')) {
-      const section5 = document.querySelector('#section5');
-      section5.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_4')) {
+//       const section5 = document.querySelector('#section5');
+//       section5.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else {
-      const section6 = document.querySelector('#section6');
-      section6.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
-  });
-})
+//     } else {
+//       const section6 = document.querySelector('#section6');
+//       section6.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     }
+//   });
+// })
 
 //navigation-md
 const burger = document.querySelector('.navigation-md__burger');
@@ -58,9 +58,21 @@ burger.addEventListener('click', () => {
 });
 
 
-//logo change,mouse show,burger change,scroll show
+//logo change,mouse show,burger change,scroll show,change header bgc
 const logo = document.querySelectorAll('.logo-white');
 const mouse = document.querySelector('.footer__mouse');
+const header = document.querySelector('.header');
+
+function changeHeader() {
+  const top = html.getBoundingClientRect().top;
+  if (top < `-${margin1}`) {
+    header.style.backgroundColor = "rgba(237, 237, 237, 0.8)";
+    header.style.backdropFilter = "blur(9px)";
+  } else {
+    header.style.backgroundColor = "transparent"
+    header.style.backdropFilter = "none";
+  }
+}
 
 function changeItems() {
   const top = html.getBoundingClientRect().top;
@@ -82,6 +94,7 @@ function changeItems() {
 }
 window.addEventListener('scroll', () => {
   changeItems();
+  changeHeader();
 });
 
 //scene five list
@@ -96,6 +109,14 @@ listTrigger.forEach(trigger => {
 });
 
 
+//hide mouse
+const sceneFive = document.querySelector('.scene-five');
+console.log(sceneFive.getBoundingClientRect().top)
+window.addEventListener('scroll', () => {
+  if (sceneFive.getBoundingClientRect().top < 0) {
+    mouse.style.display = 'none';
+  }
+});
 
 
 
@@ -201,10 +222,6 @@ getCanvas(canvas5, 1920, 2000, sceneThreePostview, margin4, 64, '../img/scene3/a
 const controller = new ScrollMagic.Controller();
 const firstScene = new TimelineMax();
 
-
-
-
-
 if (window.innerWidth < 1025 && window.innerWidth > 640) {
   firstScene
     .to('.canvas1', 5, { x: '-20%' }, '+=1')
@@ -255,7 +272,6 @@ const scene1 = new ScrollMagic.Scene({
 
   .setTween(firstScene)
   .setPin('.scene-one-trigger')
-  .addIndicators()
   .addTo(controller);
 
 ;
@@ -317,7 +333,6 @@ const scene2 = new ScrollMagic.Scene({
 
   .setTween(secondScene)
   .setPin('.scene-two-trigger')
-  .addIndicators()
   .addTo(controller);;
 //animations
 const thirdScenePrev = new TimelineMax();
@@ -347,7 +362,6 @@ const scene3prev = new ScrollMagic.Scene({
 
   .setTween(thirdScenePrev)
   .setPin('.scene-three-trigger')
-  .addIndicators()
   .addTo(controller);
 
 
@@ -393,7 +407,6 @@ const scene3post = new ScrollMagic.Scene({
 })
   .setTween(thirdScenePost)
   .setPin('.scene-three-trigger_2')
-  .addIndicators()
   .addTo(controller);
 ;
 //animations
@@ -426,7 +439,6 @@ const scene4 = new ScrollMagic.Scene({
 
   .setTween(fourthScene)
   .setPin('.scene-four-trigger')
-  .addIndicators()
   .addTo(controller);;
 //animations
 const fifthScene = new TimelineMax();
@@ -447,7 +459,6 @@ const scene5 = new ScrollMagic.Scene({
 
   .setTween(fifthScene)
   .setPin('.scene-five')
-  .addIndicators()
   .addTo(controller);;
 
 

@@ -26,7 +26,6 @@ const scene3prev = new ScrollMagic.Scene({
 
   .setTween(thirdScenePrev)
   .setPin('.scene-three-trigger')
-  .addIndicators()
   .addTo(controller);
 
 
@@ -72,5 +71,4 @@ const scene3post = new ScrollMagic.Scene({
 })
   .setTween(thirdScenePost)
   .setPin('.scene-three-trigger_2')
-  .addIndicators()
   .addTo(controller);

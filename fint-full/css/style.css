@@ -209,8 +209,12 @@ input:focus::placeholder {
   z-index: 30;
 }
 
+.header .active {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .header__wrapper {
-  height: 70px;
+  height: 55px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2292,7 +2296,7 @@ input:focus::placeholder {
 
 .navigation-md__burger {
   position: absolute;
-  top: 25px;
+  top: 7px;
   left: 20px;
   width: 40px;
   height: 40px;
@@ -2967,6 +2971,11 @@ input:focus::placeholder {
     -webkit-transform: translateY(55%);
         -ms-transform: translateY(55%);
             transform: translateY(55%);
+  }
+
+  .scene-three-postview img {
+    left: calc(40% + 20px);
+    top: calc(4% - 20px);
   }
 }
 

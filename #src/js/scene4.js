@@ -28,5 +28,4 @@ const scene4 = new ScrollMagic.Scene({
 
   .setTween(fourthScene)
   .setPin('.scene-four-trigger')
-  .addIndicators()
   .addTo(controller);

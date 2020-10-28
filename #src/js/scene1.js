@@ -2,10 +2,6 @@
 const controller = new ScrollMagic.Controller();
 const firstScene = new TimelineMax();
 
-
-
-
-
 if (window.innerWidth < 1025 && window.innerWidth > 640) {
   firstScene
     .to('.canvas1', 5, { x: '-20%' }, '+=1')
@@ -56,6 +52,5 @@ const scene1 = new ScrollMagic.Scene({
 
   .setTween(firstScene)
   .setPin('.scene-one-trigger')
-  .addIndicators()
   .addTo(controller);
 
