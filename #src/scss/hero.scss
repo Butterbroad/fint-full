@@ -29,6 +29,23 @@
     background-size: 1200px;
     padding: 30% 0;
   }
+  @media (max-width: 415px) {
+    background-size: 800px;
+    padding: 40% 0;
+  }
+  @media (max-width: 375px) {
+    background-size: 600px;
+    padding: 55% 0;
+  }
+  @media (max-width: 375px) and (max-height: 667px){
+    padding: 50% 0 40%;
+  }
+  @media (max-width: 360px) and (max-height: 640px){
+    padding: 50% 0 35%;
+  }
+  @media (max-width: 320px) and (max-height: 470px) {
+    padding: 32% 0 35%;
+  }
 
   // .hero__navigation
 
@@ -101,7 +118,15 @@
 
     @media (max-width: 1024px) {
       font-size: 30.7692px;
-      line-height: 83.5%;
+    }
+    @media (max-width: 415px) {
+      font-size: 29.7692px;
+    }
+    @media (max-width: 360px) and (max-height: 640px){
+      font-size: 23.7692px;
+    }
+    @media (max-width: 320px) and (max-height: 470px) {
+      margin: auto 0 30px 0;
     }
   }
   @keyframes heroSubtitle {

@@ -54,6 +54,7 @@ burger.addEventListener('click', () => {
   const navigationMd = document.querySelector('.navigation-md');
   navigationMd.classList.toggle('active');
   burger.classList.toggle('active');
+  document.body.classList.toggle('lock');
 });
 
 

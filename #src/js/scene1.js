@@ -6,7 +6,7 @@ const firstScene = new TimelineMax();
 
 
 
-if (window.innerWidth < 1025) {
+if (window.innerWidth < 1025 && window.innerWidth > 640) {
   firstScene
     .to('.canvas1', 5, { x: '-20%' }, '+=1')
     .from('.scene-one__content', 5, { opacity: 0 }, '-=5')
@@ -15,7 +15,17 @@ if (window.innerWidth < 1025) {
     .to('.scene-one__list', 5, { opacity: 1, y: '60' }, '-=5')
     .to('.scene-one__box', 10, { y: '43%' })
     .set('.scene-two', { marginTop: '-100vh' }, '+=.5')
+    .set('.scene-two__list', { y: '300%' })
 
+} else if (window.innerWidth < 641) {
+  firstScene
+    .to('.scene-one__content', 5, { y: '60%' })
+    .to('.scene-one__content', 5, { y: '7%' }, '+=2')
+    .to('.scene-title__num_1', 5, { opacity: 0 }, '-=5')
+    .to('.scene-list', 5, { opacity: 1, y: '35%' }, "-=5")
+    .to('.scene-one__box', 10, { y: '43%' })
+    .set('.scene-two', { marginTop: '-100vh' }, '+=.5')
+    .set('.scene-two__list', { y: '300%' })
 } else {
   firstScene
     .to('.player-info', 5, { opacity: 1 })
@@ -34,6 +44,7 @@ if (window.innerWidth < 1025) {
     .to('.scene-one__box-title', 6, { y: "30%" })
     .to('.scene-one__box-num', 6, { opacity: 1, y: '30%' })
     .set('.scene-two', { marginTop: '-100vh' }, '+=.5')
+    .set('.scene-two__list', { y: '300%' })
 }
 
 //scene1

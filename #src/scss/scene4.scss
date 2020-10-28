@@ -60,6 +60,9 @@
       line-height: 83.5%;
       top: -90%;
     }
+    @media (max-width: 415px) {
+      font-size: 208.057px;
+    }
   }
 
   // .scene-four__label
@@ -74,6 +77,9 @@
 
     @media (max-width: 1024px) {
       font-size: 66.7859px;
+    }
+    @media (max-width: 415px) {
+      font-size: 58.1977px;
     }
   }
 
@@ -95,6 +101,9 @@
       @media (max-width: 1024px) {
         font-size: 50.0894px;
       }
+      @media (max-width: 415px) {
+        font-size: 43.6482px;
+      }
     }
 
   // .scene-four__text
@@ -112,6 +121,10 @@
     @media (max-width: 1024px) {
       margin-top: 20px;
       transform: translateY(100%);
+    }
+    @media (max-width: 415px) {
+      font-size: 14px;
+      line-height: 16px;
     }
   }
 }

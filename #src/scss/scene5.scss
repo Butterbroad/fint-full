@@ -33,6 +33,13 @@
     }
     transform: scale(.3);
     transform-origin: center center;
+
+    @media (max-width: 415px) {
+      font-size: 36px;
+      span {
+        max-width: 300px;
+      }
+    }
   }
 
   // .scene-five__content
@@ -212,6 +219,9 @@
       
       @media (max-width: 1024px) {
         display: flex;
+      }
+      @media (max-width: 415px) {
+        font-size: 26.6482px;
       }
     }
 
