@@ -74,6 +74,8 @@ function changeHeader() {
   }
 }
 
+const hetemele = document.querySelector('html')
+
 function changeItems() {
   const top = html.getBoundingClientRect().top;
   if (top < `-${margin1}`) {
@@ -95,6 +97,8 @@ function changeItems() {
 window.addEventListener('scroll', () => {
   changeItems();
   changeHeader();
+
+  console.log(hetemele.scrollTop)
 });
 
 //scene five list
@@ -111,12 +115,12 @@ listTrigger.forEach(trigger => {
 
 //hide mouse
 const sceneFive = document.querySelector('.scene-five');
-console.log(sceneFive.getBoundingClientRect().top)
 window.addEventListener('scroll', () => {
   if (sceneFive.getBoundingClientRect().top < 0) {
     mouse.style.display = 'none';
   }
 });
+
 
 
 
@@ -150,6 +154,7 @@ const sceneThree = document.querySelector('.scene-three');
 const sceneThreePostview = document.querySelector('.scene-three-postview');
 let margin4 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight + sceneThree.scrollHeight + 2600;
 const canvas5 = document.getElementById("canvas5");
+
 
 
 
@@ -192,7 +197,6 @@ function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecoun
   }
 
   window.addEventListener('scroll', () => {
-
     const scrollTop = html.scrollTop - margin;
     const maxScrollTop = wrapper.scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / maxScrollTop;

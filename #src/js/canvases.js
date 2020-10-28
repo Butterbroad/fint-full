@@ -27,6 +27,7 @@ const canvas5 = document.getElementById("canvas5");
 
 
 
+
 //img format
 function getFormat(imgFormat) {
   if (body.classList.contains('webp') && imgFormat === 'svg') {
@@ -65,7 +66,6 @@ function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecoun
   }
 
   window.addEventListener('scroll', () => {
-
     const scrollTop = html.scrollTop - margin;
     const maxScrollTop = wrapper.scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / maxScrollTop;
