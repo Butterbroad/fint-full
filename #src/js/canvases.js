@@ -40,6 +40,7 @@ function getFormat(imgFormat) {
 }
 
 function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecount, path, imgFormat) {
+
   const context = canvas.getContext("2d");
 
   const currentFrame = index => {

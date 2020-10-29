@@ -18,35 +18,35 @@ if (paramLinks.length > 0) {
 //   document.body.classList.toggle('lock');
 // });
 
-//hero navigation 
-// const navigation = document.querySelectorAll('.navigation__list-link');
+//navigation
+const navigation = document.querySelectorAll('.navigation__list-link');
 
-// navigation.forEach(elem => {
-//   elem.addEventListener('click', e => {
-//     e.preventDefault();
+navigation.forEach(elem => {
+  elem.addEventListener('click', e => {
+    e.preventDefault();
 
-//     if (elem.classList.contains('navigation__list-link_1')) {
-//       const section2 = document.querySelector('#section2');
-//       section2.scrollIntoView({ behavior: 'auto', block: 'start' });
+    if (elem.classList.contains('navigation__list-link_1')) {
+      const section2 = document.querySelector('#section2');
+      section2.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-//     } else if (elem.classList.contains('navigation__list-link_2')) {
-//       const section3 = document.querySelector('#section3');
-//       section3.scrollIntoView({ behavior: 'auto', block: 'start' });
+    } else if (elem.classList.contains('navigation__list-link_2')) {
+      const section3 = document.querySelector('#section3');
+      section3.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-//     } else if (elem.classList.contains('navigation__list-link_3')) {
-//       const section4 = document.querySelector('#section4');
-//       section4.scrollIntoView({ behavior: 'auto', block: 'start' });
+    } else if (elem.classList.contains('navigation__list-link_3')) {
+      const section4 = document.querySelector('#section4');
+      section4.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-//     } else if (elem.classList.contains('navigation__list-link_4')) {
-//       const section5 = document.querySelector('#section5');
-//       section5.scrollIntoView({ behavior: 'auto', block: 'start' });
+    } else if (elem.classList.contains('navigation__list-link_4')) {
+      const section5 = document.querySelector('.scene-three-postview');
+      section5.scrollIntoView({ behavior: 'auto', block: 'end' });
 
-//     } else {
-//       const section6 = document.querySelector('#section6');
-//       section6.scrollIntoView({ behavior: 'auto', block: 'start' });
-//     }
-//   });
-// })
+    } else {
+      const section6 = document.querySelector('#section6');
+      section6.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }
+  });
+})
 
 //navigation-md
 const burger = document.querySelector('.navigation-md__burger');
@@ -57,6 +57,35 @@ burger.addEventListener('click', () => {
   document.body.classList.toggle('lock');
 });
 
+const navigationMd = document.querySelectorAll('.navigation-md__list-link');
+
+navigationMd.forEach(elem => {
+  elem.addEventListener('click', e => {
+    e.preventDefault();
+
+    if (elem.classList.contains('navigation-md__list-link_1')) {
+      const section2 = document.querySelector('#section2');
+      section2.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    } else if (elem.classList.contains('navigation-md__list-link_2')) {
+      const section3 = document.querySelector('#section3');
+      section3.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    } else if (elem.classList.contains('navigation-md__list-link_3')) {
+      const section4 = document.querySelector('#section4');
+      section4.scrollIntoView({ behavior: 'auto', block: 'start' });
+
+    } else if (elem.classList.contains('navigation-md__list-link_4')) {
+      const section5 = document.querySelector('.scene-three-postview');
+      section5.scrollIntoView({ behavior: 'auto', block: 'end' });
+
+    } else {
+      const section6 = document.querySelector('#section6');
+      section6.scrollIntoView({ behavior: 'auto', block: 'start' });
+    }
+  });
+})
+
 
 //logo change,mouse show,burger change,scroll show,change header bgc
 const logo = document.querySelectorAll('.logo-white');
@@ -66,7 +95,7 @@ const header = document.querySelector('.header');
 function changeHeader() {
   const top = html.getBoundingClientRect().top;
   if (top < `-${margin1}`) {
-    header.style.backgroundColor = "rgba(237, 237, 237, 0.8)";
+    header.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
     header.style.backdropFilter = "blur(9px)";
   } else {
     header.style.backgroundColor = "transparent"
@@ -74,7 +103,6 @@ function changeHeader() {
   }
 }
 
-const hetemele = document.querySelector('html')
 
 function changeItems() {
   const top = html.getBoundingClientRect().top;
@@ -97,9 +125,9 @@ function changeItems() {
 window.addEventListener('scroll', () => {
   changeItems();
   changeHeader();
-
-  console.log(hetemele.scrollTop)
 });
+
+
 
 //scene five list
 const listTrigger = document.querySelectorAll('.scene-content__column-trigger');
@@ -155,6 +183,45 @@ const sceneThreePostview = document.querySelector('.scene-three-postview');
 let margin4 = sceneOne.scrollHeight + hero.scrollHeight + sceneTwo.scrollHeight + sceneThree.scrollHeight + 2600;
 const canvas5 = document.getElementById("canvas5");
 
+//preload images
+window.addEventListener("DOMContentLoaded", preloadImages, true);
+
+let loadedImages = 0;
+const imageArrayJPG = new Array("../img/scene1/animation1/0001.jpg", "../img/scene1/animation1/0002.jpg", "../img/scene1/animation1/0003.jpg", "../img/scene1/animation1/0004.jpg", "../img/scene1/animation1/0005.jpg", "../img/scene1/animation1/0006.jpg", "../img/scene1/animation1/0007.jpg", "../img/scene1/animation1/0008.jpg", "../img/scene1/animation1/0009.jpg", "../img/scene1/animation1/0010.jpg", "../img/scene1/animation1/0011.jpg", "../img/scene1/animation1/0012.jpg", "../img/scene1/animation1/0013.jpg", "../img/scene1/animation1/0014.jpg", "../img/scene1/animation1/0015.jpg", "../img/scene1/animation1/0016.jpg", "../img/scene1/animation1/0017.jpg", "../img/scene1/animation1/0018.jpg", "../img/scene1/animation1/0019.jpg", "../img/scene1/animation1/0020.jpg", "../img/scene1/animation1/0021.jpg", "../img/scene1/animation1/0022.jpg", "../img/scene1/animation1/0023.jpg",
+  "../img/scene2/animation2/0001.jpg", "../img/scene2/animation2/0002.jpg", "../img/scene2/animation2/0003.jpg", "../img/scene2/animation2/0004.jpg", "../img/scene2/animation2/0005.jpg", "../img/scene2/animation2/0006.jpg", "../img/scene2/animation2/0007.jpg", "../img/scene2/animation2/0008.jpg", "../img/scene2/animation2/0009.jpg", "../img/scene2/animation2/0010.jpg", "../img/scene2/animation2/0011.jpg", "../img/scene2/animation2/0012.jpg", "../img/scene2/animation2/0013.jpg", "../img/scene2/animation2/0014.jpg", "../img/scene2/animation2/0015.jpg", "../img/scene2/animation2/0016.jpg", "../img/scene2/animation2/0017.jpg", "../img/scene2/animation2/0018.jpg", "../img/scene2/animation2/0019.jpg", "../img/scene2/animation2/0020.jpg", "../img/scene2/animation2/0021.jpg", "../img/scene2/animation2/0022.jpg", "../img/scene2/animation2/0023.jpg", "../img/scene2/animation2/0024.jpg", "../img/scene2/animation2/0025.jpg", "../img/scene2/animation2/0026.jpg", "../img/scene2/animation2/0027.jpg", "../img/scene2/animation2/0028.jpg", "../img/scene2/animation2/0029.jpg", "../img/scene2/animation2/0030.jpg", "../img/scene2/animation2/0031.jpg", "../img/scene2/animation2/0032.jpg",
+  "../img/scene2/animation3/0001.svg", "../img/scene2/animation3/0002.svg", "../img/scene2/animation3/0003.svg", "../img/scene2/animation3/0004.svg", "../img/scene2/animation3/0005.svg", "../img/scene2/animation3/0006.svg", "../img/scene2/animation3/0007.svg", "../img/scene2/animation3/0008.svg", "../img/scene2/animation3/0009.svg",
+  "../img/scene3/animation4/0001.jpg", "../img/scene3/animation4/0002.jpg", "../img/scene3/animation4/0003.jpg", "../img/scene3/animation4/0004.jpg", "../img/scene3/animation4/0005.jpg", "../img/scene3/animation4/0006.jpg", "../img/scene3/animation4/0007.jpg", "../img/scene3/animation4/0008.jpg", "../img/scene3/animation4/0009.jpg", "../img/scene3/animation4/0010.jpg", "../img/scene3/animation4/0011.jpg", "../img/scene3/animation4/0012.jpg", "../img/scene3/animation4/0013.jpg", "../img/scene3/animation4/0014.jpg", "../img/scene3/animation4/0015.jpg", "../img/scene3/animation4/0016.jpg", "../img/scene3/animation4/0017.jpg",
+  "../img/scene3/animation5/0001.jpg", "../img/scene3/animation5/0002.jpg", "../img/scene3/animation5/0003.jpg", "../img/scene3/animation5/0004.jpg", "../img/scene3/animation5/0005.jpg", "../img/scene3/animation5/0006.jpg", "../img/scene3/animation5/0007.jpg", "../img/scene3/animation5/0008.jpg", "../img/scene3/animation5/0009.jpg", "../img/scene3/animation5/0010.jpg", "../img/scene3/animation5/0011.jpg", "../img/scene3/animation5/0012.jpg", "../img/scene3/animation5/0013.jpg", "../img/scene3/animation5/0014.jpg", "../img/scene3/animation5/0015.jpg", "../img/scene3/animation5/0016.jpg", "../img/scene3/animation5/0017.jpg", "../img/scene3/animation5/0018.jpg", "../img/scene3/animation5/0019.jpg", "../img/scene3/animation5/0020.jpg", "../img/scene3/animation5/0021.jpg", "../img/scene3/animation5/0022.jpg", "../img/scene3/animation5/0023.jpg", "../img/scene3/animation5/0024.jpg", "../img/scene3/animation5/0025.jpg", "../img/scene3/animation5/0026.jpg", "../img/scene3/animation5/0027.jpg", "../img/scene3/animation5/0028.jpg", "../img/scene3/animation5/0029.jpg", "../img/scene3/animation5/0030.jpg", "../img/scene3/animation5/0031.jpg", "../img/scene3/animation5/0032.jpg", "../img/scene3/animation5/0033.jpg", "../img/scene3/animation5/0034.jpg", "../img/scene3/animation5/0035.jpg", "../img/scene3/animation5/0036.jpg", "../img/scene3/animation5/0037.jpg", "../img/scene3/animation5/0038.jpg", "../img/scene3/animation5/0039.jpg", "../img/scene3/animation5/0040.jpg", "../img/scene3/animation5/0041.jpg", "../img/scene3/animation5/0042.jpg", "../img/scene3/animation5/0043.jpg", "../img/scene3/animation5/0044.jpg", "../img/scene3/animation5/0045.jpg", "../img/scene3/animation5/0046.jpg", "../img/scene3/animation5/0047.jpg", "../img/scene3/animation5/0048.jpg", "../img/scene3/animation5/0049.jpg", "../img/scene3/animation5/0050.jpg", "../img/scene3/animation5/0051.jpg", "../img/scene3/animation5/0052.jpg", "../img/scene3/animation5/0053.jpg", "../img/scene3/animation5/0054.jpg", "../img/scene3/animation5/0055.jpg", "../img/scene3/animation5/0056.jpg", "../img/scene3/animation5/0057.jpg", "../img/scene3/animation5/0058.jpg", "../img/scene3/animation5/0059.jpg", "../img/scene3/animation5/0060.jpg", "../img/scene3/animation5/0061.jpg", "../img/scene3/animation5/0062.jpg", "../img/scene3/animation5/0063.jpg", "../img/scene3/animation5/0064.jpg");
+
+function preloadImages(e) {
+  for (var i = 0; i < imageArrayJPG.length; i++) {
+    var tempImage = new Image();
+
+    tempImage.addEventListener("load", trackProgress, true);
+    tempImage.src = imageArrayJPG[i];
+  }
+}
+
+function trackProgress() {
+  loadedImages++;
+
+  if (loadedImages == imageArrayJPG.length) {
+    imagesLoaded();
+  }
+}
+
+function imagesLoaded() {
+  getCanvas(canvas1, 600, 1080, sceneOne, margin1, 23, '../img/scene1/animation1', 'jpg');
+
+  getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2', 'jpg');
+
+  getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
+
+  getCanvas(canvas4, 1920, 2000, sceneThreePreview, margin3, 17, '../img/scene3/animation4', 'jpg');
+
+  getCanvas(canvas5, 1920, 2000, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
+
+}
 
 
 
@@ -171,6 +238,7 @@ function getFormat(imgFormat) {
 }
 
 function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecount, path, imgFormat) {
+
   const context = canvas.getContext("2d");
 
   const currentFrame = index => {
@@ -210,15 +278,10 @@ function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecoun
   preloadImages();
 }
 
-getCanvas(canvas1, 600, 1080, sceneOne, margin1, 23, '../img/scene1/animation1', 'jpg');
 
-getCanvas(canvas2, 600, 1080, sceneTwo, margin2, 32, '../img/scene2/animation2', 'jpg');
 
-getCanvas(canvas3, 350, 220, sceneTwo, margin2, 9, '../img/scene2/animation3', 'svg');
 
-getCanvas(canvas4, 1920, 2000, sceneThreePreview, margin3, 17, '../img/scene3/animation4', 'jpg');
 
-getCanvas(canvas5, 1920, 2000, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
 
 
 ;
@@ -466,75 +529,6 @@ const scene5 = new ScrollMagic.Scene({
   .addTo(controller);;
 
 
-function init() {
-  new SmoothScroll(document, 60, 12) //div px smooth
-}
-
-function SmoothScroll(target, speed, smooth) {
-  if (target === document)
-    target = (document.scrollingElement
-      || document.documentElement
-      || document.body.parentNode
-      || document.body) // cross browser support for document scrolling
-
-  var moving = false
-  var pos = target.scrollTop
-  var frame = target === document.body
-    && document.documentElement
-    ? document.documentElement
-    : target // safari is the new IE
-
-  target.addEventListener('mousewheel', scrolled, { passive: false })
-  target.addEventListener('DOMMouseScroll', scrolled, { passive: false })
-
-  function scrolled(e) {
-    e.preventDefault(); // disable default scrolling
-
-    var delta = normalizeWheelDelta(e)
-
-    pos += -delta * speed
-    pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
-
-    if (!moving) update()
-  }
-
-  function normalizeWheelDelta(e) {
-    if (e.detail) {
-      if (e.wheelDelta)
-        return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
-      else
-        return -e.detail / 3 // Firefox
-    } else
-      return e.wheelDelta / 120 // IE,Safari,Chrome
-  }
-
-  function update() {
-    moving = true
-
-    var delta = (pos - target.scrollTop) / smooth
-
-    target.scrollTop += delta
-
-    if (Math.abs(delta) > 0.5)
-      requestFrame(update)
-    else
-      moving = false
-  }
-
-  var requestFrame = function () { // requestAnimationFrame cross browser
-    return (
-      window.requestAnimationFrame ||
-      window.webkitRequestAnimationFrame ||
-      window.mozRequestAnimationFrame ||
-      window.oRequestAnimationFrame ||
-      window.msRequestAnimationFrame ||
-      function (func) {
-        window.setTimeout(func, 1000 / 50);
-      }
-    );
-  }()
-}
-init();
 function testWebP(callback) {
 
     var webP = new Image();
