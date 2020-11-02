@@ -19,34 +19,33 @@ if (paramLinks.length > 0) {
 // });
 
 //navigation
-const navigation = document.querySelectorAll('.navigation__list-link');
+// const navigation = document.querySelectorAll('.navigation__list-link');
+// navigation.forEach(elem => {
+//   elem.addEventListener('click', e => {
+//     e.preventDefault();
 
-navigation.forEach(elem => {
-  elem.addEventListener('click', e => {
-    e.preventDefault();
+//     if (elem.classList.contains('navigation__list-link_1')) {
+//       const section2 = document.querySelector('#section2');
+//       section2.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    if (elem.classList.contains('navigation__list-link_1')) {
-      const section2 = document.querySelector('#section2');
-      section2.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_2')) {
+//       const section3 = document.querySelector('#section3');
+//       section3.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation__list-link_2')) {
-      const section3 = document.querySelector('#section3');
-      section3.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_3')) {
+//       const section4 = document.querySelector('#section4');
+//       section4.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation__list-link_3')) {
-      const section4 = document.querySelector('#section4');
-      section4.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_4')) {
+//       const section5 = document.querySelector('.scene-three-postview');
+//       section5.scrollIntoView({ behavior: 'auto', block: 'end' });
 
-    } else if (elem.classList.contains('navigation__list-link_4')) {
-      const section5 = document.querySelector('.scene-three-postview');
-      section5.scrollIntoView({ behavior: 'auto', block: 'end' });
-
-    } else {
-      const section6 = document.querySelector('#section6');
-      section6.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
-  });
-})
+//     } else {
+//       const section6 = document.querySelector('#section6');
+//       section6.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     }
+//   });
+// })
 
 //navigation-md
 const burger = document.querySelector('.navigation-md__burger');
@@ -56,34 +55,33 @@ burger.addEventListener('click', () => {
   burger.classList.toggle('active');
 });
 
-const navigationMd = document.querySelectorAll('.navigation-md__list-link');
+// const navigationMd = document.querySelectorAll('.navigation-md__list-link');
+// navigationMd.forEach(elem => {
+//   elem.addEventListener('click', e => {
+//     e.preventDefault();
 
-navigationMd.forEach(elem => {
-  elem.addEventListener('click', e => {
-    e.preventDefault();
+//     if (elem.classList.contains('navigation-md__list-link_1')) {
+//       const section2 = document.querySelector('#section2');
+//       section2.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    if (elem.classList.contains('navigation-md__list-link_1')) {
-      const section2 = document.querySelector('#section2');
-      section2.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation-md__list-link_2')) {
+//       const section3 = document.querySelector('#section3');
+//       section3.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation-md__list-link_2')) {
-      const section3 = document.querySelector('#section3');
-      section3.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation-md__list-link_3')) {
+//       const section4 = document.querySelector('#section4');
+//       section4.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation-md__list-link_3')) {
-      const section4 = document.querySelector('#section4');
-      section4.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation-md__list-link_4')) {
+//       const section5 = document.querySelector('.scene-three-postview');
+//       section5.scrollIntoView({ behavior: 'auto', block: 'end' });
 
-    } else if (elem.classList.contains('navigation-md__list-link_4')) {
-      const section5 = document.querySelector('.scene-three-postview');
-      section5.scrollIntoView({ behavior: 'auto', block: 'end' });
-
-    } else {
-      const section6 = document.querySelector('#section6');
-      section6.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
-  });
-});
+//     } else {
+//       const section6 = document.querySelector('#section6');
+//       section6.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     }
+//   });
+// });
 
 const scenes = document.querySelectorAll('.scene-top');
 window.addEventListener('scroll', () => {
@@ -572,6 +570,10 @@ const scene5 = new ScrollMagic.Scene({
   .setPin('.scene-five')
   .addTo(controller);;
 
+//navigation variables
+const navigation = document.querySelectorAll('.navigation__list-link');
+const navigationMd = document.querySelectorAll('.navigation-md__list-link');
+
 function init() {
   new SmoothScroll(document, 80, 30) //div px smooth
 }
@@ -585,6 +587,73 @@ function SmoothScroll(target, speed, smooth) {
 
   let moving = false
   let pos = target.scrollTop
+
+  //navigation
+  navigation.forEach(elem => {
+    elem.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (elem.classList.contains('navigation__list-link_1')) {
+        const section2 = document.querySelector('#section2');
+        const sectionTop = section2.getBoundingClientRect().top;
+        pos = sectionTop;
+        section2.scrollIntoView({ behavior: 'auto', block: 'start' })
+      } else if (elem.classList.contains('navigation__list-link_2')) {
+        const section3 = document.querySelector('#section3');
+        const sectionTop = section3.getBoundingClientRect().top;
+        pos = sectionTop;
+        section3.scrollIntoView({ behavior: 'auto', block: 'start' })
+      } else if (elem.classList.contains('navigation__list-link_3')) {
+        const section4 = document.querySelector('#section4');
+        const sectionTop = section4.getBoundingClientRect().top;
+        pos = sectionTop;
+        section4.scrollIntoView({ behavior: 'auto', block: 'start' })
+      } else if (elem.classList.contains('navigation__list-link_4')) {
+        const section5 = document.querySelector('#section5');
+        const sectionTop = section5.getBoundingClientRect().top;
+        pos = sectionTop;
+        section5.scrollIntoView({ behavior: 'auto', block: 'start' })
+      } else {
+        const section6 = document.querySelector('#section6');
+        const sectionTop = section6.getBoundingClientRect().top;
+        pos = sectionTop;
+        section6.scrollIntoView({ behavior: 'auto', block: 'start' })
+      }
+    });
+  })
+
+  //navigation md
+  navigationMd.forEach(elem => {
+    elem.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (elem.classList.contains('navigation-md__list-link_1')) {
+        const section2 = document.querySelector('#section2');
+        const sectionTop = section2.getBoundingClientRect().top;
+        pos = sectionTop;
+        section2.scrollIntoView({ behavior: 'auto', block: 'start' })
+      } else if (elem.classList.contains('navigation-md__list-link_2')) {
+        const section3 = document.querySelector('#section3');
+        const sectionTop = section3.getBoundingClientRect().top;
+        pos = sectionTop;
+        section3.scrollIntoView({ behavior: 'auto', block: 'start' })
+      } else if (elem.classList.contains('navigation-md__list-link_3')) {
+        const section4 = document.querySelector('#section4');
+        const sectionTop = section4.getBoundingClientRect().top;
+        pos = sectionTop;
+        section4.scrollIntoView({ behavior: 'auto', block: 'start' })
+      } else if (elem.classList.contains('navigation-md__list-link_4')) {
+        const section5 = document.querySelector('#section5');
+        const sectionTop = section5.getBoundingClientRect().top;
+        pos = sectionTop;
+        section5.scrollIntoView({ behavior: 'auto', block: 'start' })
+      } else {
+        const section6 = document.querySelector('#section6');
+        const sectionTop = section6.getBoundingClientRect().top;
+        pos = sectionTop;
+        section6.scrollIntoView({ behavior: 'auto', block: 'start' })
+      }
+    });
+  });
+
   let frame = target === document.body
     && document.documentElement
     ? document.documentElement

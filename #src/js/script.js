@@ -19,34 +19,33 @@ if (paramLinks.length > 0) {
 // });
 
 //navigation
-const navigation = document.querySelectorAll('.navigation__list-link');
+// const navigation = document.querySelectorAll('.navigation__list-link');
+// navigation.forEach(elem => {
+//   elem.addEventListener('click', e => {
+//     e.preventDefault();
 
-navigation.forEach(elem => {
-  elem.addEventListener('click', e => {
-    e.preventDefault();
+//     if (elem.classList.contains('navigation__list-link_1')) {
+//       const section2 = document.querySelector('#section2');
+//       section2.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    if (elem.classList.contains('navigation__list-link_1')) {
-      const section2 = document.querySelector('#section2');
-      section2.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_2')) {
+//       const section3 = document.querySelector('#section3');
+//       section3.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation__list-link_2')) {
-      const section3 = document.querySelector('#section3');
-      section3.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_3')) {
+//       const section4 = document.querySelector('#section4');
+//       section4.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation__list-link_3')) {
-      const section4 = document.querySelector('#section4');
-      section4.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation__list-link_4')) {
+//       const section5 = document.querySelector('.scene-three-postview');
+//       section5.scrollIntoView({ behavior: 'auto', block: 'end' });
 
-    } else if (elem.classList.contains('navigation__list-link_4')) {
-      const section5 = document.querySelector('.scene-three-postview');
-      section5.scrollIntoView({ behavior: 'auto', block: 'end' });
-
-    } else {
-      const section6 = document.querySelector('#section6');
-      section6.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
-  });
-})
+//     } else {
+//       const section6 = document.querySelector('#section6');
+//       section6.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     }
+//   });
+// })
 
 //navigation-md
 const burger = document.querySelector('.navigation-md__burger');
@@ -56,34 +55,33 @@ burger.addEventListener('click', () => {
   burger.classList.toggle('active');
 });
 
-const navigationMd = document.querySelectorAll('.navigation-md__list-link');
+// const navigationMd = document.querySelectorAll('.navigation-md__list-link');
+// navigationMd.forEach(elem => {
+//   elem.addEventListener('click', e => {
+//     e.preventDefault();
 
-navigationMd.forEach(elem => {
-  elem.addEventListener('click', e => {
-    e.preventDefault();
+//     if (elem.classList.contains('navigation-md__list-link_1')) {
+//       const section2 = document.querySelector('#section2');
+//       section2.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    if (elem.classList.contains('navigation-md__list-link_1')) {
-      const section2 = document.querySelector('#section2');
-      section2.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation-md__list-link_2')) {
+//       const section3 = document.querySelector('#section3');
+//       section3.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation-md__list-link_2')) {
-      const section3 = document.querySelector('#section3');
-      section3.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation-md__list-link_3')) {
+//       const section4 = document.querySelector('#section4');
+//       section4.scrollIntoView({ behavior: 'auto', block: 'start' });
 
-    } else if (elem.classList.contains('navigation-md__list-link_3')) {
-      const section4 = document.querySelector('#section4');
-      section4.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     } else if (elem.classList.contains('navigation-md__list-link_4')) {
+//       const section5 = document.querySelector('.scene-three-postview');
+//       section5.scrollIntoView({ behavior: 'auto', block: 'end' });
 
-    } else if (elem.classList.contains('navigation-md__list-link_4')) {
-      const section5 = document.querySelector('.scene-three-postview');
-      section5.scrollIntoView({ behavior: 'auto', block: 'end' });
-
-    } else {
-      const section6 = document.querySelector('#section6');
-      section6.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
-  });
-});
+//     } else {
+//       const section6 = document.querySelector('#section6');
+//       section6.scrollIntoView({ behavior: 'auto', block: 'start' });
+//     }
+//   });
+// });
 
 const scenes = document.querySelectorAll('.scene-top');
 window.addEventListener('scroll', () => {
