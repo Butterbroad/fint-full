@@ -54,7 +54,6 @@ burger.addEventListener('click', () => {
   const navigationMd = document.querySelector('.navigation-md');
   navigationMd.classList.toggle('active');
   burger.classList.toggle('active');
-  document.body.classList.toggle('lock');
 });
 
 const navigationMd = document.querySelectorAll('.navigation-md__list-link');
@@ -84,7 +83,46 @@ navigationMd.forEach(elem => {
       section6.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
   });
-})
+});
+
+const scenes = document.querySelectorAll('.scene-top');
+window.addEventListener('scroll', () => {
+  scenes.forEach(elem => {
+    (elem.getBoundingClientRect().top <= 0) ? elem.classList.add('active') : elem.classList.remove('active');
+    if (scenes[4].classList.contains('active')) {
+      navigationMd[4].classList.add('active')
+      navigationMd[0].classList.remove('active')
+      navigationMd[1].classList.remove('active')
+      navigationMd[2].classList.remove('active')
+      navigationMd[3].classList.remove('active')
+    } else if (scenes[3].classList.contains('active')) {
+      navigationMd[3].classList.add('active')
+      navigationMd[0].classList.remove('active')
+      navigationMd[1].classList.remove('active')
+      navigationMd[2].classList.remove('active')
+      navigationMd[4].classList.remove('active')
+    } else if (scenes[2].classList.contains('active')) {
+      navigationMd[2].classList.add('active')
+      navigationMd[0].classList.remove('active')
+      navigationMd[1].classList.remove('active')
+      navigationMd[3].classList.remove('active')
+      navigationMd[4].classList.remove('active')
+    } else if (scenes[1].classList.contains('active')) {
+      navigationMd[1].classList.add('active')
+      navigationMd[0].classList.remove('active')
+      navigationMd[2].classList.remove('active')
+      navigationMd[3].classList.remove('active')
+      navigationMd[4].classList.remove('active')
+    } else if (scenes[0].classList.contains('active')) {
+      navigationMd[0].classList.add('active')
+      navigationMd[1].classList.remove('active')
+      navigationMd[2].classList.remove('active')
+      navigationMd[3].classList.remove('active')
+      navigationMd[4].classList.remove('active')
+    }
+    (scenes[0].getBoundingClientRect().top > 0) ? navigationMd[0].classList.remove('active') : null;
+  });
+});
 
 
 //logo change,mouse show,burger change,scroll show,change header bgc
@@ -187,25 +225,35 @@ const canvas5 = document.getElementById("canvas5");
 window.addEventListener("DOMContentLoaded", preloadImages, true);
 
 let loadedImages = 0;
-const imageArrayJPG = new Array("../img/scene1/animation1/0001.jpg", "../img/scene1/animation1/0002.jpg", "../img/scene1/animation1/0003.jpg", "../img/scene1/animation1/0004.jpg", "../img/scene1/animation1/0005.jpg", "../img/scene1/animation1/0006.jpg", "../img/scene1/animation1/0007.jpg", "../img/scene1/animation1/0008.jpg", "../img/scene1/animation1/0009.jpg", "../img/scene1/animation1/0010.jpg", "../img/scene1/animation1/0011.jpg", "../img/scene1/animation1/0012.jpg", "../img/scene1/animation1/0013.jpg", "../img/scene1/animation1/0014.jpg", "../img/scene1/animation1/0015.jpg", "../img/scene1/animation1/0016.jpg", "../img/scene1/animation1/0017.jpg", "../img/scene1/animation1/0018.jpg", "../img/scene1/animation1/0019.jpg", "../img/scene1/animation1/0020.jpg", "../img/scene1/animation1/0021.jpg", "../img/scene1/animation1/0022.jpg", "../img/scene1/animation1/0023.jpg",
+// const imageArray = new Array("../img/scene1/animation1/0001.jpg", "../img/scene1/animation1/0002.jpg", "../img/scene1/animation1/0003.jpg", "../img/scene1/animation1/0004.jpg", "../img/scene1/animation1/0005.jpg", "../img/scene1/animation1/0006.jpg", "../img/scene1/animation1/0007.jpg", "../img/scene1/animation1/0008.jpg", "../img/scene1/animation1/0009.jpg", "../img/scene1/animation1/0010.jpg", "../img/scene1/animation1/0011.jpg", "../img/scene1/animation1/0012.jpg", "../img/scene1/animation1/0013.jpg", "../img/scene1/animation1/0014.jpg", "../img/scene1/animation1/0015.jpg", "../img/scene1/animation1/0016.jpg", "../img/scene1/animation1/0017.jpg", "../img/scene1/animation1/0018.jpg", "../img/scene1/animation1/0019.jpg", "../img/scene1/animation1/0020.jpg", "../img/scene1/animation1/0021.jpg", "../img/scene1/animation1/0022.jpg", "../img/scene1/animation1/0023.jpg",
+//   "../img/scene2/animation2/0001.jpg", "../img/scene2/animation2/0002.jpg", "../img/scene2/animation2/0003.jpg", "../img/scene2/animation2/0004.jpg", "../img/scene2/animation2/0005.jpg", "../img/scene2/animation2/0006.jpg", "../img/scene2/animation2/0007.jpg", "../img/scene2/animation2/0008.jpg", "../img/scene2/animation2/0009.jpg", "../img/scene2/animation2/0010.jpg", "../img/scene2/animation2/0011.jpg", "../img/scene2/animation2/0012.jpg", "../img/scene2/animation2/0013.jpg", "../img/scene2/animation2/0014.jpg", "../img/scene2/animation2/0015.jpg", "../img/scene2/animation2/0016.jpg", "../img/scene2/animation2/0017.jpg", "../img/scene2/animation2/0018.jpg", "../img/scene2/animation2/0019.jpg", "../img/scene2/animation2/0020.jpg", "../img/scene2/animation2/0021.jpg", "../img/scene2/animation2/0022.jpg", "../img/scene2/animation2/0023.jpg", "../img/scene2/animation2/0024.jpg", "../img/scene2/animation2/0025.jpg", "../img/scene2/animation2/0026.jpg", "../img/scene2/animation2/0027.jpg", "../img/scene2/animation2/0028.jpg", "../img/scene2/animation2/0029.jpg", "../img/scene2/animation2/0030.jpg", "../img/scene2/animation2/0031.jpg", "../img/scene2/animation2/0032.jpg",
+//   "../img/scene2/animation3/0001.svg", "../img/scene2/animation3/0002.svg", "../img/scene2/animation3/0003.svg", "../img/scene2/animation3/0004.svg", "../img/scene2/animation3/0005.svg", "../img/scene2/animation3/0006.svg", "../img/scene2/animation3/0007.svg", "../img/scene2/animation3/0008.svg", "../img/scene2/animation3/0009.svg",
+//   "../img/scene3/animation4/0001.jpg", "../img/scene3/animation4/0002.jpg", "../img/scene3/animation4/0003.jpg", "../img/scene3/animation4/0004.jpg", "../img/scene3/animation4/0005.jpg", "../img/scene3/animation4/0006.jpg", "../img/scene3/animation4/0007.jpg", "../img/scene3/animation4/0008.jpg", "../img/scene3/animation4/0009.jpg", "../img/scene3/animation4/0010.jpg", "../img/scene3/animation4/0011.jpg", "../img/scene3/animation4/0012.jpg", "../img/scene3/animation4/0013.jpg", "../img/scene3/animation4/0014.jpg", "../img/scene3/animation4/0015.jpg", "../img/scene3/animation4/0016.jpg", "../img/scene3/animation4/0017.jpg",
+//   "../img/scene3/animation5/0001.jpg", "../img/scene3/animation5/0002.jpg", "../img/scene3/animation5/0003.jpg", "../img/scene3/animation5/0004.jpg", "../img/scene3/animation5/0005.jpg", "../img/scene3/animation5/0006.jpg", "../img/scene3/animation5/0007.jpg", "../img/scene3/animation5/0008.jpg", "../img/scene3/animation5/0009.jpg", "../img/scene3/animation5/0010.jpg", "../img/scene3/animation5/0011.jpg", "../img/scene3/animation5/0012.jpg", "../img/scene3/animation5/0013.jpg", "../img/scene3/animation5/0014.jpg", "../img/scene3/animation5/0015.jpg", "../img/scene3/animation5/0016.jpg", "../img/scene3/animation5/0017.jpg", "../img/scene3/animation5/0018.jpg", "../img/scene3/animation5/0019.jpg", "../img/scene3/animation5/0020.jpg", "../img/scene3/animation5/0021.jpg", "../img/scene3/animation5/0022.jpg", "../img/scene3/animation5/0023.jpg", "../img/scene3/animation5/0024.jpg", "../img/scene3/animation5/0025.jpg", "../img/scene3/animation5/0026.jpg", "../img/scene3/animation5/0027.jpg", "../img/scene3/animation5/0028.jpg", "../img/scene3/animation5/0029.jpg", "../img/scene3/animation5/0030.jpg", "../img/scene3/animation5/0031.jpg", "../img/scene3/animation5/0032.jpg", "../img/scene3/animation5/0033.jpg", "../img/scene3/animation5/0034.jpg", "../img/scene3/animation5/0035.jpg", "../img/scene3/animation5/0036.jpg", "../img/scene3/animation5/0037.jpg", "../img/scene3/animation5/0038.jpg", "../img/scene3/animation5/0039.jpg", "../img/scene3/animation5/0040.jpg", "../img/scene3/animation5/0041.jpg", "../img/scene3/animation5/0042.jpg", "../img/scene3/animation5/0043.jpg", "../img/scene3/animation5/0044.jpg", "../img/scene3/animation5/0045.jpg", "../img/scene3/animation5/0046.jpg", "../img/scene3/animation5/0047.jpg", "../img/scene3/animation5/0048.jpg", "../img/scene3/animation5/0049.jpg", "../img/scene3/animation5/0050.jpg", "../img/scene3/animation5/0051.jpg", "../img/scene3/animation5/0052.jpg", "../img/scene3/animation5/0053.jpg", "../img/scene3/animation5/0054.jpg", "../img/scene3/animation5/0055.jpg", "../img/scene3/animation5/0056.jpg", "../img/scene3/animation5/0057.jpg", "../img/scene3/animation5/0058.jpg", "../img/scene3/animation5/0059.jpg", "../img/scene3/animation5/0060.jpg", "../img/scene3/animation5/0061.jpg", "../img/scene3/animation5/0062.jpg", "../img/scene3/animation5/0063.jpg", "../img/scene3/animation5/0064.jpg");
+
+const imageArray = new Array("../img/scene1/animation1/0001.jpg", "../img/scene1/animation1/0002.jpg", "../img/scene1/animation1/0003.jpg", "../img/scene1/animation1/0004.jpg", "../img/scene1/animation1/0005.jpg", "../img/scene1/animation1/0006.jpg", "../img/scene1/animation1/0007.jpg", "../img/scene1/animation1/0008.jpg", "../img/scene1/animation1/0009.jpg", "../img/scene1/animation1/0010.jpg", "../img/scene1/animation1/0011.jpg", "../img/scene1/animation1/0012.jpg", "../img/scene1/animation1/0013.jpg", "../img/scene1/animation1/0014.jpg", "../img/scene1/animation1/0015.jpg", "../img/scene1/animation1/0016.jpg", "../img/scene1/animation1/0017.jpg", "../img/scene1/animation1/0018.jpg", "../img/scene1/animation1/0019.jpg", "../img/scene1/animation1/0020.jpg", "../img/scene1/animation1/0021.jpg", "../img/scene1/animation1/0022.jpg", "../img/scene1/animation1/0023.jpg",
+  "../img/scene1/animation1/0001.webp", "../img/scene1/animation1/0002.webp", "../img/scene1/animation1/0003.webp", "../img/scene1/animation1/0004.webp", "../img/scene1/animation1/0005.webp", "../img/scene1/animation1/0006.webp", "../img/scene1/animation1/0007.webp", "../img/scene1/animation1/0008.webp", "../img/scene1/animation1/0009.webp", "../img/scene1/animation1/0010.webp", "../img/scene1/animation1/0011.webp", "../img/scene1/animation1/0012.webp", "../img/scene1/animation1/0013.webp", "../img/scene1/animation1/0014.webp", "../img/scene1/animation1/0015.webp", "../img/scene1/animation1/0016.webp", "../img/scene1/animation1/0017.webp", "../img/scene1/animation1/0018.webp", "../img/scene1/animation1/0019.webp", "../img/scene1/animation1/0020.webp", "../img/scene1/animation1/0021.webp", "../img/scene1/animation1/0022.webp", "../img/scene1/animation1/0023.webp",
   "../img/scene2/animation2/0001.jpg", "../img/scene2/animation2/0002.jpg", "../img/scene2/animation2/0003.jpg", "../img/scene2/animation2/0004.jpg", "../img/scene2/animation2/0005.jpg", "../img/scene2/animation2/0006.jpg", "../img/scene2/animation2/0007.jpg", "../img/scene2/animation2/0008.jpg", "../img/scene2/animation2/0009.jpg", "../img/scene2/animation2/0010.jpg", "../img/scene2/animation2/0011.jpg", "../img/scene2/animation2/0012.jpg", "../img/scene2/animation2/0013.jpg", "../img/scene2/animation2/0014.jpg", "../img/scene2/animation2/0015.jpg", "../img/scene2/animation2/0016.jpg", "../img/scene2/animation2/0017.jpg", "../img/scene2/animation2/0018.jpg", "../img/scene2/animation2/0019.jpg", "../img/scene2/animation2/0020.jpg", "../img/scene2/animation2/0021.jpg", "../img/scene2/animation2/0022.jpg", "../img/scene2/animation2/0023.jpg", "../img/scene2/animation2/0024.jpg", "../img/scene2/animation2/0025.jpg", "../img/scene2/animation2/0026.jpg", "../img/scene2/animation2/0027.jpg", "../img/scene2/animation2/0028.jpg", "../img/scene2/animation2/0029.jpg", "../img/scene2/animation2/0030.jpg", "../img/scene2/animation2/0031.jpg", "../img/scene2/animation2/0032.jpg",
+  "../img/scene2/animation2/0001.webp", "../img/scene2/animation2/0002.webp", "../img/scene2/animation2/0003.webp", "../img/scene2/animation2/0004.webp", "../img/scene2/animation2/0005.webp", "../img/scene2/animation2/0006.webp", "../img/scene2/animation2/0007.webp", "../img/scene2/animation2/0008.webp", "../img/scene2/animation2/0009.webp", "../img/scene2/animation2/0010.webp", "../img/scene2/animation2/0011.webp", "../img/scene2/animation2/0012.webp", "../img/scene2/animation2/0013.webp", "../img/scene2/animation2/0014.webp", "../img/scene2/animation2/0015.webp", "../img/scene2/animation2/0016.webp", "../img/scene2/animation2/0017.webp", "../img/scene2/animation2/0018.webp", "../img/scene2/animation2/0019.webp", "../img/scene2/animation2/0020.webp", "../img/scene2/animation2/0021.webp", "../img/scene2/animation2/0022.webp", "../img/scene2/animation2/0023.webp", "../img/scene2/animation2/0024.webp", "../img/scene2/animation2/0025.webp", "../img/scene2/animation2/0026.webp", "../img/scene2/animation2/0027.webp", "../img/scene2/animation2/0028.webp", "../img/scene2/animation2/0029.webp", "../img/scene2/animation2/0030.webp", "../img/scene2/animation2/0031.webp", "../img/scene2/animation2/0032.webp",
   "../img/scene2/animation3/0001.svg", "../img/scene2/animation3/0002.svg", "../img/scene2/animation3/0003.svg", "../img/scene2/animation3/0004.svg", "../img/scene2/animation3/0005.svg", "../img/scene2/animation3/0006.svg", "../img/scene2/animation3/0007.svg", "../img/scene2/animation3/0008.svg", "../img/scene2/animation3/0009.svg",
   "../img/scene3/animation4/0001.jpg", "../img/scene3/animation4/0002.jpg", "../img/scene3/animation4/0003.jpg", "../img/scene3/animation4/0004.jpg", "../img/scene3/animation4/0005.jpg", "../img/scene3/animation4/0006.jpg", "../img/scene3/animation4/0007.jpg", "../img/scene3/animation4/0008.jpg", "../img/scene3/animation4/0009.jpg", "../img/scene3/animation4/0010.jpg", "../img/scene3/animation4/0011.jpg", "../img/scene3/animation4/0012.jpg", "../img/scene3/animation4/0013.jpg", "../img/scene3/animation4/0014.jpg", "../img/scene3/animation4/0015.jpg", "../img/scene3/animation4/0016.jpg", "../img/scene3/animation4/0017.jpg",
-  "../img/scene3/animation5/0001.jpg", "../img/scene3/animation5/0002.jpg", "../img/scene3/animation5/0003.jpg", "../img/scene3/animation5/0004.jpg", "../img/scene3/animation5/0005.jpg", "../img/scene3/animation5/0006.jpg", "../img/scene3/animation5/0007.jpg", "../img/scene3/animation5/0008.jpg", "../img/scene3/animation5/0009.jpg", "../img/scene3/animation5/0010.jpg", "../img/scene3/animation5/0011.jpg", "../img/scene3/animation5/0012.jpg", "../img/scene3/animation5/0013.jpg", "../img/scene3/animation5/0014.jpg", "../img/scene3/animation5/0015.jpg", "../img/scene3/animation5/0016.jpg", "../img/scene3/animation5/0017.jpg", "../img/scene3/animation5/0018.jpg", "../img/scene3/animation5/0019.jpg", "../img/scene3/animation5/0020.jpg", "../img/scene3/animation5/0021.jpg", "../img/scene3/animation5/0022.jpg", "../img/scene3/animation5/0023.jpg", "../img/scene3/animation5/0024.jpg", "../img/scene3/animation5/0025.jpg", "../img/scene3/animation5/0026.jpg", "../img/scene3/animation5/0027.jpg", "../img/scene3/animation5/0028.jpg", "../img/scene3/animation5/0029.jpg", "../img/scene3/animation5/0030.jpg", "../img/scene3/animation5/0031.jpg", "../img/scene3/animation5/0032.jpg", "../img/scene3/animation5/0033.jpg", "../img/scene3/animation5/0034.jpg", "../img/scene3/animation5/0035.jpg", "../img/scene3/animation5/0036.jpg", "../img/scene3/animation5/0037.jpg", "../img/scene3/animation5/0038.jpg", "../img/scene3/animation5/0039.jpg", "../img/scene3/animation5/0040.jpg", "../img/scene3/animation5/0041.jpg", "../img/scene3/animation5/0042.jpg", "../img/scene3/animation5/0043.jpg", "../img/scene3/animation5/0044.jpg", "../img/scene3/animation5/0045.jpg", "../img/scene3/animation5/0046.jpg", "../img/scene3/animation5/0047.jpg", "../img/scene3/animation5/0048.jpg", "../img/scene3/animation5/0049.jpg", "../img/scene3/animation5/0050.jpg", "../img/scene3/animation5/0051.jpg", "../img/scene3/animation5/0052.jpg", "../img/scene3/animation5/0053.jpg", "../img/scene3/animation5/0054.jpg", "../img/scene3/animation5/0055.jpg", "../img/scene3/animation5/0056.jpg", "../img/scene3/animation5/0057.jpg", "../img/scene3/animation5/0058.jpg", "../img/scene3/animation5/0059.jpg", "../img/scene3/animation5/0060.jpg", "../img/scene3/animation5/0061.jpg", "../img/scene3/animation5/0062.jpg", "../img/scene3/animation5/0063.jpg", "../img/scene3/animation5/0064.jpg");
+  "../img/scene3/animation4/0001.webp", "../img/scene3/animation4/0002.webp", "../img/scene3/animation4/0003.webp", "../img/scene3/animation4/0004.webp", "../img/scene3/animation4/0005.webp", "../img/scene3/animation4/0006.webp", "../img/scene3/animation4/0007.webp", "../img/scene3/animation4/0008.webp", "../img/scene3/animation4/0009.webp", "../img/scene3/animation4/0010.webp", "../img/scene3/animation4/0011.webp", "../img/scene3/animation4/0012.webp", "../img/scene3/animation4/0013.webp", "../img/scene3/animation4/0014.webp", "../img/scene3/animation4/0015.webp", "../img/scene3/animation4/0016.webp", "../img/scene3/animation4/0017.webp",
+  "../img/scene3/animation5/0001.jpg", "../img/scene3/animation5/0002.jpg", "../img/scene3/animation5/0003.jpg", "../img/scene3/animation5/0004.jpg", "../img/scene3/animation5/0005.jpg", "../img/scene3/animation5/0006.jpg", "../img/scene3/animation5/0007.jpg", "../img/scene3/animation5/0008.jpg", "../img/scene3/animation5/0009.jpg", "../img/scene3/animation5/0010.jpg", "../img/scene3/animation5/0011.jpg", "../img/scene3/animation5/0012.jpg", "../img/scene3/animation5/0013.jpg", "../img/scene3/animation5/0014.jpg", "../img/scene3/animation5/0015.jpg", "../img/scene3/animation5/0016.jpg", "../img/scene3/animation5/0017.jpg", "../img/scene3/animation5/0018.jpg", "../img/scene3/animation5/0019.jpg", "../img/scene3/animation5/0020.jpg", "../img/scene3/animation5/0021.jpg", "../img/scene3/animation5/0022.jpg", "../img/scene3/animation5/0023.jpg", "../img/scene3/animation5/0024.jpg", "../img/scene3/animation5/0025.jpg", "../img/scene3/animation5/0026.jpg", "../img/scene3/animation5/0027.jpg", "../img/scene3/animation5/0028.jpg", "../img/scene3/animation5/0029.jpg", "../img/scene3/animation5/0030.jpg", "../img/scene3/animation5/0031.jpg", "../img/scene3/animation5/0032.jpg", "../img/scene3/animation5/0033.jpg", "../img/scene3/animation5/0034.jpg", "../img/scene3/animation5/0035.jpg", "../img/scene3/animation5/0036.jpg", "../img/scene3/animation5/0037.jpg", "../img/scene3/animation5/0038.jpg", "../img/scene3/animation5/0039.jpg", "../img/scene3/animation5/0040.jpg", "../img/scene3/animation5/0041.jpg", "../img/scene3/animation5/0042.jpg", "../img/scene3/animation5/0043.jpg", "../img/scene3/animation5/0044.jpg", "../img/scene3/animation5/0045.jpg", "../img/scene3/animation5/0046.jpg", "../img/scene3/animation5/0047.jpg", "../img/scene3/animation5/0048.jpg", "../img/scene3/animation5/0049.jpg", "../img/scene3/animation5/0050.jpg", "../img/scene3/animation5/0051.jpg", "../img/scene3/animation5/0052.jpg", "../img/scene3/animation5/0053.jpg", "../img/scene3/animation5/0054.jpg", "../img/scene3/animation5/0055.jpg", "../img/scene3/animation5/0056.jpg", "../img/scene3/animation5/0057.jpg", "../img/scene3/animation5/0058.jpg", "../img/scene3/animation5/0059.jpg", "../img/scene3/animation5/0060.jpg", "../img/scene3/animation5/0061.jpg", "../img/scene3/animation5/0062.jpg", "../img/scene3/animation5/0063.jpg", "../img/scene3/animation5/0064.jpg",
+  "../img/scene3/animation5/0001.webp", "../img/scene3/animation5/0002.webp", "../img/scene3/animation5/0003.webp", "../img/scene3/animation5/0004.webp", "../img/scene3/animation5/0005.webp", "../img/scene3/animation5/0006.webp", "../img/scene3/animation5/0007.webp", "../img/scene3/animation5/0008.webp", "../img/scene3/animation5/0009.webp", "../img/scene3/animation5/0010.webp", "../img/scene3/animation5/0011.webp", "../img/scene3/animation5/0012.webp", "../img/scene3/animation5/0013.webp", "../img/scene3/animation5/0014.webp", "../img/scene3/animation5/0015.webp", "../img/scene3/animation5/0016.webp", "../img/scene3/animation5/0017.webp", "../img/scene3/animation5/0018.webp", "../img/scene3/animation5/0019.webp", "../img/scene3/animation5/0020.webp", "../img/scene3/animation5/0021.webp", "../img/scene3/animation5/0022.webp", "../img/scene3/animation5/0023.webp", "../img/scene3/animation5/0024.webp", "../img/scene3/animation5/0025.webp", "../img/scene3/animation5/0026.webp", "../img/scene3/animation5/0027.webp", "../img/scene3/animation5/0028.webp", "../img/scene3/animation5/0029.webp", "../img/scene3/animation5/0030.webp", "../img/scene3/animation5/0031.webp", "../img/scene3/animation5/0032.webp", "../img/scene3/animation5/0033.webp", "../img/scene3/animation5/0034.webp", "../img/scene3/animation5/0035.webp", "../img/scene3/animation5/0036.webp", "../img/scene3/animation5/0037.webp", "../img/scene3/animation5/0038.webp", "../img/scene3/animation5/0039.webp", "../img/scene3/animation5/0040.webp", "../img/scene3/animation5/0041.webp", "../img/scene3/animation5/0042.webp", "../img/scene3/animation5/0043.webp", "../img/scene3/animation5/0044.webp", "../img/scene3/animation5/0045.webp", "../img/scene3/animation5/0046.webp", "../img/scene3/animation5/0047.webp", "../img/scene3/animation5/0048.webp", "../img/scene3/animation5/0049.webp", "../img/scene3/animation5/0050.webp", "../img/scene3/animation5/0051.webp", "../img/scene3/animation5/0052.webp", "../img/scene3/animation5/0053.webp", "../img/scene3/animation5/0054.webp", "../img/scene3/animation5/0055.webp", "../img/scene3/animation5/0056.webp", "../img/scene3/animation5/0057.webp", "../img/scene3/animation5/0058.webp", "../img/scene3/animation5/0059.webp", "../img/scene3/animation5/0060.webp", "../img/scene3/animation5/0061.webp", "../img/scene3/animation5/0062.webp", "../img/scene3/animation5/0063.webp", "../img/scene3/animation5/0064.webp");
 
 function preloadImages(e) {
-  for (var i = 0; i < imageArrayJPG.length; i++) {
+  for (var i = 0; i < imageArray.length; i++) {
     var tempImage = new Image();
 
     tempImage.addEventListener("load", trackProgress, true);
-    tempImage.src = imageArrayJPG[i];
+    tempImage.src = imageArray[i];
   }
 }
 
 function trackProgress() {
   loadedImages++;
 
-  if (loadedImages == imageArrayJPG.length) {
+  if (loadedImages == imageArray.length) {
     imagesLoaded();
   }
 }
@@ -222,7 +270,6 @@ function imagesLoaded() {
   getCanvas(canvas5, 1920, 2000, sceneThreePostview, margin4, 64, '../img/scene3/animation5', 'jpg');
 
 }
-
 
 
 
@@ -277,9 +324,6 @@ function getCanvas(canvas, canvasWidth, canvasHeight, wrapper, margin, framecoun
 
   preloadImages();
 }
-
-
-
 
 
 
@@ -350,15 +394,15 @@ if (window.innerWidth < 641 && window.innerWidth > 414) {
   secondScene
     .to('.canvas2', 1, { scale: '1.5', transformOrigin: 'center top' })
     .to('.canvas2', .5, { opacity: 0 })
-    .to('.canvas3', 5, { x: 0, y: '-150%' }, '-=.5')
-    .to('.scene-two__title', 5, { y: '-330%' }, '-=5')
+    .to('.canvas3', 5, { x: 0, y: '-190%' }, '-=.5')
+    .to('.scene-two__title', 5, { y: '-400%' }, '-=5')
     .to('.scene-title__num_2', 5, { opacity: 0 }, '-=5')
     .to('.scene-two__list', 5, { y: '-420%' }, '-=5')
     .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
-    .to('.canvas3', 10, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" })
+    .to('.canvas3', 2, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" }, '+=1')
     .set('.scene-three-preview', { zIndex: '5' })
 
-} else if (window.innerWidth < 415 && window.innerWidth > 568) {
+} else if (window.innerWidth < 415 && window.innerHeight > 568) {
   secondScene
     .to('.canvas2', 1, { scale: '1.5', transformOrigin: 'center top' }, '+=1')
     .to('.canvas2', .1, { opacity: 0 })
@@ -367,7 +411,7 @@ if (window.innerWidth < 641 && window.innerWidth > 414) {
     .to('.scene-title__num_2', 5, { opacity: 0 }, '-=5')
     .to('.scene-two__list', 5, { y: '-220%' }, '-=5')
     .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
-    .to('.canvas3', 10, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" })
+    .to('.canvas3', 2, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" }, '+=1')
     .set('.scene-three-preview', { zIndex: '5' })
 
 } else if (window.innerWidth < 340) {
@@ -379,7 +423,7 @@ if (window.innerWidth < 641 && window.innerWidth > 414) {
     .to('.scene-two__title', 5, { y: '-550%' }, '-=5')
     .to('.scene-title__num_2', 5, { opacity: 0 }, '-=5')
     .to('.scene-two__list', 5, { y: '-175%' }, '-=5')
-    .to('.canvas3', 10, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" })
+    .to('.canvas3', 2, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" }, '+=1')
     .set('.scene-three-preview', { zIndex: '5' })
 } else {
   secondScene
@@ -387,7 +431,7 @@ if (window.innerWidth < 641 && window.innerWidth > 414) {
     .to('.scene-title__num_2', 2, { opacity: 0 }, '-=2')
     .to('.scene-two__list', 1, { y: 0, opacity: 1 })
     .set('.scene-list__item', { className: "+=scene-list__item active" }, '-=.5')
-    .to('.canvas3', 10, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" })
+    .to('.canvas3', 2, { scale: 10, transformOrigin: "center top", x: "300%", y: "-300%" }, '+=1')
     .set('.scene-three-preview', { zIndex: '5' })
 }
 
@@ -438,28 +482,28 @@ const thirdScenePost = new TimelineMax();
 if (window.innerWidth < 1601 && innerHeight > 899) {
   thirdScenePost
     .to('.iphone', .1, { opacity: 1 }, '+=5')
-    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .to('.iphone', 1, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
     .set('.canvas5', { opacity: 0 })
     .set('.iphone', { display: 'none' })
     .set('.scene-four', { marginTop: '-200vh' })
 } else if (window.innerWidth < 1367) {
   thirdScenePost
     .to('.iphone', .1, { opacity: 1 }, '+=12')
-    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .to('.iphone', 1, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
     .set('.canvas5', { opacity: 0 })
     .set('.iphone', { display: 'none' })
     .set('.scene-four', { marginTop: '-200vh' })
 } else if (window.innerWidth < 1281) {
   thirdScenePost
     .to('.iphone', .1, { opacity: 1 }, '+=25')
-    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .to('.iphone', 1, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
     .set('.canvas5', { opacity: 0 })
     .set('.iphone', { display: 'none' })
     .set('.scene-four', { marginTop: '-200vh' })
 } else {
   thirdScenePost
     .to('.iphone', .1, { opacity: 1 }, '+=2.5')
-    .to('.iphone', 5, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
+    .to('.iphone', 1, { scale: 20, y: '200%', x: '100%', transformOrigin: 'center center' })
     .set('.canvas5', { opacity: 0 })
     .set('.iphone', { display: 'none' })
     .set('.scene-four', { marginTop: '-200vh' })
@@ -528,7 +572,75 @@ const scene5 = new ScrollMagic.Scene({
   .setPin('.scene-five')
   .addTo(controller);;
 
+function init() {
+  new SmoothScroll(document, 80, 30) //div px smooth
+}
 
+function SmoothScroll(target, speed, smooth) {
+  if (target === document)
+    target = (document.scrollingElement
+      || document.documentElement
+      || document.body.parentNode
+      || document.body) // cross browser support for document scrolling
+
+  let moving = false
+  let pos = target.scrollTop
+  let frame = target === document.body
+    && document.documentElement
+    ? document.documentElement
+    : target // safari is the new IE
+
+  target.addEventListener('mousewheel', scrolled, { passive: false })
+  target.addEventListener('DOMMouseScroll', scrolled, { passive: false })
+
+  function scrolled(e) {
+    e.preventDefault(); // disable default scrolling
+
+    let delta = normalizeWheelDelta(e)
+
+    pos += -delta * speed / 2
+    pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
+
+    if (!moving) update()
+  }
+
+  function normalizeWheelDelta(e) {
+    if (e.detail) {
+      if (e.wheelDelta)
+        return e.wheelDelta / e.detail / 40 * (e.detail > 0 ? 1 : -1) // Opera
+      else
+        return -e.detail / 3 // Firefox
+    } else
+      return e.wheelDelta / 120 // IE,Safari,Chrome
+  }
+
+  function update() {
+    moving = true
+
+    let delta = (pos - target.scrollTop) / smooth
+
+    target.scrollTop += delta
+
+    if (Math.abs(delta) > 0.5)
+      requestFrame(update)
+    else
+      moving = false
+  }
+
+  let requestFrame = function () { // requestAnimationFrame cross browser
+    return (
+      window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      window.msRequestAnimationFrame ||
+      function (func) {
+        window.setTimeout(func, 1000 / 50);
+      }
+    );
+  }()
+}
+init();
 function testWebP(callback) {
 
     var webP = new Image();

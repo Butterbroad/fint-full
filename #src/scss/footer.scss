@@ -84,5 +84,8 @@
       @media (max-width: 1024px) {
         display: block;
       }
+      @media (max-width: 375px) {
+        display: none;
+      }
     }
 }

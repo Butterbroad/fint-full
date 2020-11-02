@@ -54,7 +54,6 @@ burger.addEventListener('click', () => {
   const navigationMd = document.querySelector('.navigation-md');
   navigationMd.classList.toggle('active');
   burger.classList.toggle('active');
-  document.body.classList.toggle('lock');
 });
 
 const navigationMd = document.querySelectorAll('.navigation-md__list-link');
@@ -84,7 +83,46 @@ navigationMd.forEach(elem => {
       section6.scrollIntoView({ behavior: 'auto', block: 'start' });
     }
   });
-})
+});
+
+const scenes = document.querySelectorAll('.scene-top');
+window.addEventListener('scroll', () => {
+  scenes.forEach(elem => {
+    (elem.getBoundingClientRect().top <= 0) ? elem.classList.add('active') : elem.classList.remove('active');
+    if (scenes[4].classList.contains('active')) {
+      navigationMd[4].classList.add('active')
+      navigationMd[0].classList.remove('active')
+      navigationMd[1].classList.remove('active')
+      navigationMd[2].classList.remove('active')
+      navigationMd[3].classList.remove('active')
+    } else if (scenes[3].classList.contains('active')) {
+      navigationMd[3].classList.add('active')
+      navigationMd[0].classList.remove('active')
+      navigationMd[1].classList.remove('active')
+      navigationMd[2].classList.remove('active')
+      navigationMd[4].classList.remove('active')
+    } else if (scenes[2].classList.contains('active')) {
+      navigationMd[2].classList.add('active')
+      navigationMd[0].classList.remove('active')
+      navigationMd[1].classList.remove('active')
+      navigationMd[3].classList.remove('active')
+      navigationMd[4].classList.remove('active')
+    } else if (scenes[1].classList.contains('active')) {
+      navigationMd[1].classList.add('active')
+      navigationMd[0].classList.remove('active')
+      navigationMd[2].classList.remove('active')
+      navigationMd[3].classList.remove('active')
+      navigationMd[4].classList.remove('active')
+    } else if (scenes[0].classList.contains('active')) {
+      navigationMd[0].classList.add('active')
+      navigationMd[1].classList.remove('active')
+      navigationMd[2].classList.remove('active')
+      navigationMd[3].classList.remove('active')
+      navigationMd[4].classList.remove('active')
+    }
+    (scenes[0].getBoundingClientRect().top > 0) ? navigationMd[0].classList.remove('active') : null;
+  });
+});
 
 
 //logo change,mouse show,burger change,scroll show,change header bgc
@@ -157,7 +195,7 @@ window.addEventListener('scroll', () => {
 
 
 
-@@include('canvases-test.js');
+@@include('canvases.js');
 @@include('scene1.js');
 
 @@include('scene2.js');
@@ -165,5 +203,5 @@ window.addEventListener('scroll', () => {
 @@include('scene4.js');
 @@include('scene5.js');
 
-
+@@include('smoothPageScroll.js');
 @@include('webpSupport.js');

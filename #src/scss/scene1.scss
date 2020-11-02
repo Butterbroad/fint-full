@@ -378,11 +378,15 @@
       &::before {
         content: '';
         position: absolute;
-        right: 0;
+        right: -20px;
         top: -5px;
         width: 27px;
         height: 27px;
         background-image: url(../img/check.svg);
+
+        @media (max-width: 375px) {
+          right: 0;
+        }
       }
     }
     &:last-child {
